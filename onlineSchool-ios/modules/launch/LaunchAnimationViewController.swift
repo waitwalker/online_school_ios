@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import Lottie
 /**
  * description: 启动动画控制
  *
@@ -16,20 +16,29 @@ class LaunchAnimationViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let tmpView = UIView()
-        tmpView.backgroundColor = .brown
-        self.view.addSubview(tmpView)
         
-        tmpView.snp.makeConstraints { (make) in
-            make.width.equalTo(240)
-            make.height.equalTo(300)
-            make.center.equalTo(self.view)
-            
+        let lottieAnimationView:AnimationView = AnimationView(name: "launch")
+        lottieAnimationView.contentMode = .scaleAspectFill
+        lottieAnimationView.loopMode = .playOnce
+        lottieAnimationView.isUserInteractionEnabled = true
+        lottieAnimationView.backgroundBehavior = .pauseAndRestore
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tapAction))
+        lottieAnimationView.addGestureRecognizer(tap)
+        self.view.addSubview(lottieAnimationView)
+        lottieAnimationView.snp.makeConstraints { (make) in
+            make.top.left.bottom.right.equalTo(self.view)
+        }
+        lottieAnimationView.play { (value) in
+            print("动画播放完成状态:\(value)")
         }
         
+
         
     }
     
+    /// lottie动画点击事件
+    @objc func tapAction() -> Void {
+        print("点击动画了")
+    }
 
 }

@@ -20,6 +20,7 @@
 		6A9BD1FC25B67E1200205DFD /* onlineSchool_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A9BD1FB25B67E1200205DFD /* onlineSchool_iosUITests.swift */; };
 		6A9BD21525B67F7E00205DFD /* LaunchAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A9BD21425B67F7E00205DFD /* LaunchAnimationViewController.swift */; };
 		6A9BD22825B685CF00205DFD /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A9BD22725B685CF00205DFD /* BaseViewController.swift */; };
+		6A9BD23B25B6891A00205DFD /* launch.json in Resources */ = {isa = PBXBuildFile; fileRef = 6A9BD23A25B6891A00205DFD /* launch.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		6A9BD1FD25B67E1200205DFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6A9BD21425B67F7E00205DFD /* LaunchAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchAnimationViewController.swift; sourceTree = "<group>"; };
 		6A9BD22725B685CF00205DFD /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		6A9BD23A25B6891A00205DFD /* launch.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = launch.json; sourceTree = "<group>"; };
 		6D830D23BE4EDCCA9B4DABD9 /* Pods_onlineSchool_iosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_onlineSchool_iosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		70FB99CA75CCC0D0A266EEF9 /* Pods_onlineSchool_ios_onlineSchool_iosUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_onlineSchool_ios_onlineSchool_iosUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		99452DE163F09399BBA48EC6 /* Pods-onlineSchool-ios-onlineSchool-iosUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-onlineSchool-ios-onlineSchool-iosUITests.release.xcconfig"; path = "Target Support Files/Pods-onlineSchool-ios-onlineSchool-iosUITests/Pods-onlineSchool-ios-onlineSchool-iosUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 		6A9BD21325B67F4400205DFD /* launch */ = {
 			isa = PBXGroup;
 			children = (
+				6A9BD23A25B6891A00205DFD /* launch.json */,
 				6A9BD21425B67F7E00205DFD /* LaunchAnimationViewController.swift */,
 			);
 			path = launch;
@@ -308,6 +311,7 @@
 			files = (
 				6A9BD1E625B67E1100205DFD /* LaunchScreen.storyboard in Resources */,
 				6A9BD1E325B67E1100205DFD /* Assets.xcassets in Resources */,
+				6A9BD23B25B6891A00205DFD /* launch.json in Resources */,
 				6A9BD1E125B67E1000205DFD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
