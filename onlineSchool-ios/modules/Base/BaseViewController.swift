@@ -1,29 +1,19 @@
 //
-//  LaunchAnimationViewController.swift
+//  BaseViewController.swift
 //  onlineSchool-ios
 //
 //  Created by waitwalker on 2021/1/19.
 //
 
 import UIKit
+import SnapKit
 
-class LaunchAnimationViewController: BaseViewController {
+class BaseViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let tmpView = UIView()
-        tmpView.backgroundColor = .brown
-        self.view.addSubview(tmpView)
         
-        tmpView.snp.makeConstraints { (make) in
-            make.width.equalTo(240)
-            make.height.equalTo(300)
-            make.center.equalTo(self.view)
-            
-        }
-        
-        
+        self.view.backgroundColor = .white
     }
     
 

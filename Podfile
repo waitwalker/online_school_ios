@@ -4,6 +4,9 @@
 target 'onlineSchool-ios' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
+  
+  # 自动布局框架
+  pod 'SnapKit'
 
   # Pods for onlineSchool-ios
 
