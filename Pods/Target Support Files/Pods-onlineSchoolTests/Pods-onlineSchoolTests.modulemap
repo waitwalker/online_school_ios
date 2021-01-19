@@ -1,0 +1,6 @@
+framework module Pods_onlineSchoolTests {
+  umbrella header "Pods-onlineSchoolTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
