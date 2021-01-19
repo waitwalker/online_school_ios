@@ -10,6 +10,7 @@ import UIKit
 class LoginViewController: BaseViewController {
     
     var accountInput: UITextField!
+    var passwordInput: UITextField!
     
 
     override func viewDidLoad() {
@@ -89,6 +90,56 @@ class LoginViewController: BaseViewController {
             make.centerY.equalTo(accountContainer)
         }
         
+        /// 密码容器
+        let passwordContainer: UIView = UIView()
+        passwordContainer.backgroundColor = .white
+        passwordContainer.layer.cornerRadius = 20
+        passwordContainer.layer.shadowOpacity = 0.7
+        passwordContainer.layer.shadowRadius = 10
+        passwordContainer.layer.shadowColor = UIColor.gray.cgColor
+        passwordContainer.layer.shadowOffset = CGSize(width: 0, height: 2)
+        self.view.addSubview(passwordContainer)
+        
+        passwordContainer.snp.makeConstraints { (make) in
+            make.left.equalTo(20)
+            make.right.equalTo(-20)
+            make.top.equalTo(accountContainer.snp_bottomMargin).offset(40)
+            make.height.equalTo(44)
+        }
+        
+        /// 密码图标
+        let passwordIcon: UIImageView = UIImageView(image: UIImage(named: "password_placeholder_icon"))
+        passwordContainer.addSubview(passwordIcon)
+        passwordIcon.snp.makeConstraints { (make) in
+            make.width.height.equalTo(24)
+            make.left.equalTo(5)
+            make.centerY.equalTo(passwordContainer)
+        }
+        
+        /// 密码输入框
+        passwordInput = UITextField()
+        passwordInput.textColor = .black
+        passwordInput.placeholder = "密码"
+        passwordInput.isSecureTextEntry = true
+        passwordInput.backgroundColor = .white
+        passwordContainer.addSubview(passwordInput)
+        passwordInput.snp.makeConstraints { (make) in
+            make.left.equalTo(passwordIcon.snp_rightMargin).offset(15)
+            make.top.height.equalTo(passwordContainer)
+            make.right.equalTo(-40)
+        }
+        
+        /// 密码明文密文按钮
+        let passwordDelete: UIImageView = UIImageView(image: UIImage(named: "password_placeholder_icon"))
+        passwordDelete.isUserInteractionEnabled = true
+        let passwordTap = UITapGestureRecognizer(target: self, action: #selector(passwordDeleteTapAction))
+        passwordDelete.addGestureRecognizer(passwordTap)
+        passwordContainer.addSubview(passwordDelete)
+        passwordDelete.snp.makeConstraints { (make) in
+            make.width.height.equalTo(24)
+            make.left.equalTo(passwordInput.snp_rightMargin).offset(10)
+            make.centerY.equalTo(passwordContainer)
+        }
         
         
     }
@@ -98,5 +149,11 @@ class LoginViewController: BaseViewController {
         print("点击了account delete")
     }
     
+    
+    /// 密码明文/密文切换
+    @objc func passwordDeleteTapAction() -> Void {
+        print("点击了password")
+        passwordInput.isSecureTextEntry = !passwordInput.isSecureTextEntry;
+    }
 
 }
