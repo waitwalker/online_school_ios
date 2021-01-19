@@ -21,6 +21,7 @@
 		6A9BD21525B67F7E00205DFD /* LaunchAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A9BD21425B67F7E00205DFD /* LaunchAnimationViewController.swift */; };
 		6A9BD22825B685CF00205DFD /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A9BD22725B685CF00205DFD /* BaseViewController.swift */; };
 		6A9BD23B25B6891A00205DFD /* launch.json in Resources */ = {isa = PBXBuildFile; fileRef = 6A9BD23A25B6891A00205DFD /* launch.json */; };
+		6A9BD25E25B6A4B700205DFD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A9BD25D25B6A4B700205DFD /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		6A9BD21425B67F7E00205DFD /* LaunchAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchAnimationViewController.swift; sourceTree = "<group>"; };
 		6A9BD22725B685CF00205DFD /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		6A9BD23A25B6891A00205DFD /* launch.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = launch.json; sourceTree = "<group>"; };
+		6A9BD25D25B6A4B700205DFD /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		6D830D23BE4EDCCA9B4DABD9 /* Pods_onlineSchool_iosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_onlineSchool_iosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		70FB99CA75CCC0D0A266EEF9 /* Pods_onlineSchool_ios_onlineSchool_iosUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_onlineSchool_ios_onlineSchool_iosUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		99452DE163F09399BBA48EC6 /* Pods-onlineSchool-ios-onlineSchool-iosUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-onlineSchool-ios-onlineSchool-iosUITests.release.xcconfig"; path = "Target Support Files/Pods-onlineSchool-ios-onlineSchool-iosUITests/Pods-onlineSchool-ios-onlineSchool-iosUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 		6A9BD21225B67F0D00205DFD /* modules */ = {
 			isa = PBXGroup;
 			children = (
+				6A9BD25C25B6A4AA00205DFD /* login */,
 				6A9BD22625B685C100205DFD /* Base */,
 				6A9BD21325B67F4400205DFD /* launch */,
 			);
@@ -186,6 +189,14 @@
 				6A9BD22725B685CF00205DFD /* BaseViewController.swift */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		6A9BD25C25B6A4AA00205DFD /* login */ = {
+			isa = PBXGroup;
+			children = (
+				6A9BD25D25B6A4B700205DFD /* LoginViewController.swift */,
+			);
+			path = login;
 			sourceTree = "<group>";
 		};
 		FC454269A9633B83A28384F2 /* Pods */ = {
@@ -440,6 +451,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A9BD25E25B6A4B700205DFD /* LoginViewController.swift in Sources */,
 				6A9BD22825B685CF00205DFD /* BaseViewController.swift in Sources */,
 				6A9BD21525B67F7E00205DFD /* LaunchAnimationViewController.swift in Sources */,
 				6A9BD1DE25B67E1000205DFD /* ViewController.swift in Sources */,

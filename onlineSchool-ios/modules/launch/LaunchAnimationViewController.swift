@@ -30,6 +30,11 @@ class LaunchAnimationViewController: BaseViewController {
         }
         lottieAnimationView.play { (value) in
             print("动画播放完成状态:\(value)")
+            let loginVC = LoginViewController()
+            loginVC.modalPresentationStyle = .fullScreen
+            self.present(loginVC, animated: false) {
+                
+            }
         }
         
 
