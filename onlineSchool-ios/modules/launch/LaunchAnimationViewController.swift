@@ -17,6 +17,7 @@ class LaunchAnimationViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        /// 启动动画
         let lottieAnimationView:AnimationView = AnimationView(name: "launch")
         lottieAnimationView.contentMode = .scaleAspectFill
         lottieAnimationView.loopMode = .playOnce
@@ -36,8 +37,6 @@ class LaunchAnimationViewController: BaseViewController {
                 
             }
         }
-        
-
         
     }
     
