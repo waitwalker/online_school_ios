@@ -7,6 +7,11 @@
 
 import UIKit
 
+/**
+ * description: 启动动画控制
+ *
+ * author: waitwalker
+ */
 class LaunchAnimationViewController: BaseViewController {
 
     override func viewDidLoad() {
@@ -26,15 +31,5 @@ class LaunchAnimationViewController: BaseViewController {
         
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
