@@ -97,7 +97,6 @@
 				436501EBA48051633522E178 /* Pods-onlineSchoolTests.debug.xcconfig */,
 				8349672E526E3F3B29A783DF /* Pods-onlineSchoolTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
