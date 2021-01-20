@@ -11,6 +11,7 @@ class LoginViewController: BaseViewController {
     
     var accountInput: UITextField!
     var passwordInput: UITextField!
+    var passwordSecurity: UIImageView!
     
 
     override func viewDidLoad() {
@@ -130,18 +131,16 @@ class LoginViewController: BaseViewController {
         }
         
         /// 密码明文密文按钮
-        let passwordDelete: UIImageView = UIImageView(image: UIImage(named: "password_placeholder_icon"))
-        passwordDelete.isUserInteractionEnabled = true
+        passwordSecurity = UIImageView(image: UIImage(named: "visible_placeholder_icon"))
+        passwordSecurity.isUserInteractionEnabled = true
         let passwordTap = UITapGestureRecognizer(target: self, action: #selector(passwordDeleteTapAction))
-        passwordDelete.addGestureRecognizer(passwordTap)
-        passwordContainer.addSubview(passwordDelete)
-        passwordDelete.snp.makeConstraints { (make) in
+        passwordSecurity.addGestureRecognizer(passwordTap)
+        passwordContainer.addSubview(passwordSecurity)
+        passwordSecurity.snp.makeConstraints { (make) in
             make.width.height.equalTo(24)
             make.left.equalTo(passwordInput.snp_rightMargin).offset(10)
             make.centerY.equalTo(passwordContainer)
         }
-        
-        
     }
     
     /// 清空按钮点击回调
@@ -154,6 +153,7 @@ class LoginViewController: BaseViewController {
     @objc func passwordDeleteTapAction() -> Void {
         print("点击了password")
         passwordInput.isSecureTextEntry = !passwordInput.isSecureTextEntry;
+        passwordSecurity.image = UIImage(named: passwordInput.isSecureTextEntry ? "visible_placeholder_icon" : "invisible_placeholder_icon")
     }
 
 }
