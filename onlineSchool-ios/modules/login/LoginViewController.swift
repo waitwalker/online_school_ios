@@ -190,6 +190,14 @@ class LoginViewController: BaseViewController {
             make.width.equalTo(240)
             make.centerX.equalTo(self.view)
         }
+        
+        /// 底部图片
+        let bottomImageView: UIImageView = UIImageView(image: UIImage(named: "login_background_down"))
+        self.view.addSubview(bottomImageView)
+        bottomImageView.snp.makeConstraints { (make) in
+            make.left.bottom.width.equalTo(self.view)
+            make.height.equalTo(160)
+        }
     }
     
     /// 清空按钮点击回调
