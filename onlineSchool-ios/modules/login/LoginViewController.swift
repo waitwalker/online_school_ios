@@ -160,10 +160,10 @@ class LoginViewController: BaseViewController {
         /// 登录按钮
         let loginButton: UIButton = UIButton()
         loginButton.setTitle("登录", for: .normal)
-        loginButton.titleLabel?.font = .systemFont(ofSize: 20)
+        loginButton.titleLabel?.font = .systemFont(ofSize: 22)
         loginButton.setTitleColor(.white, for: .normal)
         loginButton.setTitleColor(UIColor(hex: "#772299"), for: .highlighted)
-        loginButton.addTarget(self, action: #selector(forgetButtonAction(_:)), for: .touchUpInside)
+        loginButton.addTarget(self, action: #selector(loginButtonAction(_:)), for: .touchUpInside)
         loginButton.backgroundColor = UIColor(hex: "#5B8CF2")
         loginButton.layer.cornerRadius = 22
         
@@ -175,7 +175,21 @@ class LoginViewController: BaseViewController {
             make.centerX.equalTo(self.view)
         }
         
+        /// 注册按钮
+        let registerButton: UIButton = UIButton()
+        registerButton.setTitle("去注册", for: .normal)
+        registerButton.titleLabel?.font = .systemFont(ofSize: 16)
+        registerButton.setTitleColor(UIColor(hex: "#5B8CF2"), for: .normal)
+        registerButton.setTitleColor(UIColor(hex: "#5B8Cc2"), for: .highlighted)
+        registerButton.addTarget(self, action: #selector(registerButtonAction(_:)), for: .touchUpInside)
         
+        self.view.addSubview(registerButton)
+        registerButton.snp.makeConstraints { (make) in
+            make.top.equalTo(loginButton.snp_bottomMargin).offset(20)
+            make.height.equalTo(20)
+            make.width.equalTo(240)
+            make.centerX.equalTo(self.view)
+        }
     }
     
     /// 清空按钮点击回调
@@ -196,5 +210,15 @@ class LoginViewController: BaseViewController {
     @objc func forgetButtonAction(_ button: UIButton) -> Void {
         print("忘记密码被点击")
     }
+    
+    /// 登录按钮点击事件
+    @objc func loginButtonAction(_ button: UIButton) -> Void {
+        print("登录被点击")
+    }
 
+    
+    /// 注册按钮点击事件
+    @objc func registerButtonAction(_ button: UIButton) -> Void {
+        print("注册被点击")
+    }
 }
