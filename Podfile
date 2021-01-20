@@ -8,6 +8,9 @@ target 'onlineSchool-ios' do
   # 自动布局框架
   pod 'SnapKit'
   
+  # 网络请求库
+  pod 'Alamofire'
+  
   # lottie 动画
   pod 'lottie-ios'
 
