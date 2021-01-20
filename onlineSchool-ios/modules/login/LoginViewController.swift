@@ -80,7 +80,7 @@ class LoginViewController: BaseViewController {
         }
         
         /// 账户清空按钮
-        let accountDelete: UIImageView = UIImageView(image: UIImage(named: "account_placeholder_icon"))
+        let accountDelete: UIImageView = UIImageView(image: UIImage(named: "login_account_clear_icon"))
         accountDelete.isUserInteractionEnabled = true
         let tap = UITapGestureRecognizer(target: self, action: #selector(accountDeleteTapAction))
         accountDelete.addGestureRecognizer(tap)
@@ -141,11 +141,29 @@ class LoginViewController: BaseViewController {
             make.left.equalTo(passwordInput.snp_rightMargin).offset(10)
             make.centerY.equalTo(passwordContainer)
         }
+        
+        /// 忘记密码
+        let forgetPasswordButton: UIButton = UIButton()
+        forgetPasswordButton.setTitle("忘记密码", for: .normal)
+        forgetPasswordButton.titleLabel?.font = .systemFont(ofSize: 15)
+        forgetPasswordButton.setTitleColor(UIColor(named: "#778899"), for: .normal)
+        forgetPasswordButton.addTarget(self, action: #selector(forgetButtonAction(_:)), for: .touchUpInside)
+        forgetPasswordButton.backgroundColor = .brown
+        self.view.addSubview(forgetPasswordButton)
+        forgetPasswordButton.snp.makeConstraints { (make) in
+            make.top.equalTo(passwordContainer.snp_bottomMargin).offset(20)
+            make.height.equalTo(20)
+            make.left.equalTo(passwordContainer)
+        }
+        
+        
+        
     }
     
     /// 清空按钮点击回调
     @objc func accountDeleteTapAction() -> Void {
         print("点击了account delete")
+        accountInput.text = ""
     }
     
     
@@ -154,6 +172,11 @@ class LoginViewController: BaseViewController {
         print("点击了password")
         passwordInput.isSecureTextEntry = !passwordInput.isSecureTextEntry;
         passwordSecurity.image = UIImage(named: passwordInput.isSecureTextEntry ? "visible_placeholder_icon" : "invisible_placeholder_icon")
+    }
+    
+    /// 忘记密码按钮点击事件
+    @objc func forgetButtonAction(_ button: UIButton) -> Void {
+        
     }
 
 }
