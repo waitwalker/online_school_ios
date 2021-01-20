@@ -145,17 +145,35 @@ class LoginViewController: BaseViewController {
         /// 忘记密码
         let forgetPasswordButton: UIButton = UIButton()
         forgetPasswordButton.setTitle("忘记密码", for: .normal)
-        forgetPasswordButton.titleLabel?.font = .systemFont(ofSize: 15)
-        forgetPasswordButton.setTitleColor(UIColor(named: "#778899"), for: .normal)
+        forgetPasswordButton.titleLabel?.font = .systemFont(ofSize: 14)
+        forgetPasswordButton.setTitleColor(UIColor(hex: "#778899"), for: .normal)
+        forgetPasswordButton.setTitleColor(UIColor(hex: "#772299"), for: .highlighted)
         forgetPasswordButton.addTarget(self, action: #selector(forgetButtonAction(_:)), for: .touchUpInside)
-        forgetPasswordButton.backgroundColor = .brown
+        
         self.view.addSubview(forgetPasswordButton)
         forgetPasswordButton.snp.makeConstraints { (make) in
             make.top.equalTo(passwordContainer.snp_bottomMargin).offset(20)
             make.height.equalTo(20)
-            make.left.equalTo(passwordContainer)
+            make.left.equalTo(passwordContainer).offset(20)
         }
         
+        /// 登录按钮
+        let loginButton: UIButton = UIButton()
+        loginButton.setTitle("登录", for: .normal)
+        loginButton.titleLabel?.font = .systemFont(ofSize: 20)
+        loginButton.setTitleColor(.white, for: .normal)
+        loginButton.setTitleColor(UIColor(hex: "#772299"), for: .highlighted)
+        loginButton.addTarget(self, action: #selector(forgetButtonAction(_:)), for: .touchUpInside)
+        loginButton.backgroundColor = UIColor(hex: "#5B8CF2")
+        loginButton.layer.cornerRadius = 22
+        
+        self.view.addSubview(loginButton)
+        loginButton.snp.makeConstraints { (make) in
+            make.top.equalTo(forgetPasswordButton.snp_bottomMargin).offset(40)
+            make.height.equalTo(44)
+            make.width.equalTo(240)
+            make.centerX.equalTo(self.view)
+        }
         
         
     }
@@ -176,7 +194,7 @@ class LoginViewController: BaseViewController {
     
     /// 忘记密码按钮点击事件
     @objc func forgetButtonAction(_ button: UIButton) -> Void {
-        
+        print("忘记密码被点击")
     }
 
 }
