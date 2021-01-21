@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+/// 颜色扩展类
 public extension UIColor {
     
     /// 随机颜色
