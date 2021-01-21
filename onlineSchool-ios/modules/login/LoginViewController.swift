@@ -17,12 +17,17 @@ class LoginViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let appendStr = NetworkManager.mapToQuery([
-            "name":"18600000001",
+        let appendStr = NetworkManager.sharedInstance.mapToQuery([
+            "username":"18600000001",
             "password":"a11111"
         ])
         
         print("拼接完的字符串:\(appendStr)")
+        
+        
+        NetworkManager.sharedInstance.getRequest(ApiConst.login, parameters: ["username1" : "ett", "password" : "1111"]) { (i) in
+            
+        }
         
         /// 顶部图片
         let topImageView: UIImageView = UIImageView(image: UIImage(named: "login_background_top"))

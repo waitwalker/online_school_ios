@@ -13,6 +13,9 @@ target 'onlineSchool-ios' do
   
   # lottie 动画
   pod 'lottie-ios'
+  
+  # 数据解析
+  pod 'HandyJSON'
 
   # Pods for onlineSchool-ios
 
