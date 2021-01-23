@@ -17,15 +17,17 @@ class LoginViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let appendStr = NetworkManager.sharedInstance.mapToQuery([
-            "username":"18600000001",
-            "password":"a11111"
-        ])
-        
-        print("拼接完的字符串:\(appendStr)")
-        
-        
-        NetworkManager.sharedInstance.getRequest(ApiConst.login, parameters: ["username1" : "ett", "password" : "1111"]) { (i) in
+        NetworkManager.sharedInstance.postRequest(ApiConst.login, parameters: ["username" : "", "password" : ""]) { (model) in
+            if (model.code > 0) {
+                let loginModel = model as! LoginModel
+                NetworkManager.sharedInstance.bearerToken = loginModel.access_token
+                
+            } else {
+                print("错误码:\(model.code); 错误信息:\(model.msg)")
+                NetworkManager.sharedInstance.bearerToken = ""
+            }
+            
+            
             
         }
         
