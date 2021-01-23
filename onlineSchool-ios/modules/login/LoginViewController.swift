@@ -17,17 +17,17 @@ class LoginViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NetworkManager.sharedInstance.postRequest(ApiConst.login, parameters: ["username" : "", "password" : ""]) { (model) in
+        NetworkManager.sharedInstance.postRequest(ApiConst.login, parameters: ["username" : "18600000001", "password" : "a11111"]) { (model) in
             if (model.code > 0) {
                 let loginModel = model as! LoginModel
                 NetworkManager.sharedInstance.bearerToken = loginModel.access_token
-                
             } else {
                 print("错误码:\(model.code); 错误信息:\(model.msg)")
                 NetworkManager.sharedInstance.bearerToken = ""
             }
             
-            
+            /// 缓存token
+            UserDefaults.standard.set(NetworkManager.sharedInstance.bearerToken, forKey: "token")
             
         }
         

@@ -6,14 +6,42 @@
 //
 
 import UIKit
+import Alamofire
+
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
+    
+    /// 网络状态监听
+    let networkStatusManager = NetworkReachabilityManager(host: "www.baidu.com")
+    
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        /// 网络状态监听
+        networkStatusManager?.startListening(onUpdatePerforming: { (status) in
+            print("\(status)");
+            NetworkManager.sharedInstance.networkStatus = status
+            switch status {
+                case .unknown:
+                    break
+                case .notReachable:
+                    break
+                case .reachable(.cellular):
+                    break
+                case .reachable(.ethernetOrWiFi):
+                    break
+            }
+        })
+        
+        /// token
+        if let token = UserDefaults.standard.object(forKey: "token") {
+            NetworkManager.sharedInstance.bearerToken = token as! String
+        } else {
+            NetworkManager.sharedInstance.bearerToken = ""
+        }
+        
         return true
     }
 
