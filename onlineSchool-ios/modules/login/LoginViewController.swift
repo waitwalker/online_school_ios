@@ -266,5 +266,10 @@ class LoginViewController: BaseViewController {
     /// 注册按钮点击事件
     @objc func registerButtonAction(_ button: UIButton) -> Void {
         print("注册被点击")
+        let registerVC: MTTRegisterViewController = MTTRegisterViewController()
+        registerVC.modalPresentationStyle = .fullScreen
+        present(registerVC, animated: true) {
+            
+        }
     }
 }
