@@ -14,7 +14,9 @@ class MTTForgetPasswordViewController: BaseViewController {
     var getCodeButton: UIButton!
     var passwordInput: UITextField!
     var passwordSecurity: UIImageView!
-    
+    var count : Int?
+    var enabled : Bool?
+    var timer : Timer?
     
 
     override func viewDidLoad() {
@@ -257,8 +259,33 @@ class MTTForgetPasswordViewController: BaseViewController {
     /// 获取验证码按钮点击事件
     @objc func codeButtonAction(_ button: UIButton) -> Void {
         print("获取验证码按钮被点击")
+        startCountDown(timeout: 60)
     }
     
+    /// 开启倒计时
+    private func startCountDown(timeout: Int) {
+        // 倒计时时间
+        self.count = timeout
+        self.getCodeButton.isEnabled = false
+            
+        // 加一个计时器
+        self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerFired), userInfo: nil, repeats: true)
+    }
+    
+    @objc func timerFired() {
+        if self.count != 1 {
+            self.count! -= 1
+            self.getCodeButton.isEnabled = false
+            self.getCodeButton.setTitle("\(self.count!)s后重试", for: UIControl.State.normal)
+        } else {
+            self.getCodeButton.isEnabled = true
+            self.getCodeButton.setTitle("获取验证码", for: UIControl.State.normal)
+            // 放开按钮点击权限，可以再次点击
+            self.getCodeButton.isEnabled = true
+            self.timer?.invalidate()
+            self.timer = nil
+        }
+    }
     
     /// 密码明文/密文切换
     @objc func passwordDeleteTapAction() -> Void {
