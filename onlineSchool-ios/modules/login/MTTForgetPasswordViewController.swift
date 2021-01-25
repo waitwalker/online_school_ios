@@ -1,22 +1,36 @@
 //
-//  LoginViewController.swift
+//  MTTForgetPasswordViewController.swift
 //  onlineSchool-ios
 //
-//  Created by waitwalker on 2021/1/19.
+//  Created by waitwalker on 2021/1/25.
 //
 
 import UIKit
-import NetworkLibrary
 
-class LoginViewController: BaseViewController {
-    
+class MTTForgetPasswordViewController: BaseViewController {
+
     var accountInput: UITextField!
+    var codeInput: UITextField!
+    var getCodeButton: UIButton!
     var passwordInput: UITextField!
     var passwordSecurity: UIImageView!
+    
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        /// 返回按钮
+        let backButton: UIButton = UIButton()
+        backButton.setImage(UIImage(named: "forget_password_back_icon"), for: .normal)
+        backButton.addTarget(self, action: #selector(bactButtonAction(_:)), for: .touchUpInside)
+        self.view.addSubview(backButton)
+        backButton.snp.makeConstraints { (make) in
+            make.left.equalTo(40)
+            make.top.equalTo(80)
+            make.width.equalTo(36)
+            make.height.equalTo(36)
+        }
         
         /// 顶部图片
         let topImageView: UIImageView = UIImageView(image: UIImage(named: "login_background_top"))
@@ -28,14 +42,14 @@ class LoginViewController: BaseViewController {
             make.height.equalTo(160)
         }
         
-        /// 用户登录
-        let userLoginLabel: UILabel = UILabel()
-        userLoginLabel.text = "用户登录"
-        userLoginLabel.textColor = .black
-        userLoginLabel.textAlignment = .left
-        userLoginLabel.font = .systemFont(ofSize: 22, weight: .bold)
-        self.view.addSubview(userLoginLabel)
-        userLoginLabel.snp.makeConstraints { (make) in
+        /// 忘记密码
+        let forgetPasswordLabel: UILabel = UILabel()
+        forgetPasswordLabel.text = "忘记密码"
+        forgetPasswordLabel.textColor = .black
+        forgetPasswordLabel.textAlignment = .left
+        forgetPasswordLabel.font = .systemFont(ofSize: 22, weight: .bold)
+        self.view.addSubview(forgetPasswordLabel)
+        forgetPasswordLabel.snp.makeConstraints { (make) in
             make.left.equalTo(40)
             make.height.equalTo(30)
             make.width.equalTo(200)
@@ -55,7 +69,7 @@ class LoginViewController: BaseViewController {
         accountContainer.snp.makeConstraints { (make) in
             make.left.equalTo(20)
             make.right.equalTo(-20)
-            make.top.equalTo(userLoginLabel.snp_bottomMargin).offset(30)
+            make.top.equalTo(forgetPasswordLabel.snp_bottomMargin).offset(60)
             make.height.equalTo(44)
         }
         
@@ -71,7 +85,7 @@ class LoginViewController: BaseViewController {
         /// 账号输入框
         accountInput = UITextField()
         accountInput.textColor = .black
-        accountInput.placeholder = "手机号/账号"
+        accountInput.placeholder = "手机号"
         accountInput.backgroundColor = .white
         accountContainer.addSubview(accountInput)
         accountInput.snp.makeConstraints { (make) in
@@ -92,6 +106,59 @@ class LoginViewController: BaseViewController {
             make.centerY.equalTo(accountContainer)
         }
         
+        /// 验证码容器
+        let codeContainer: UIView = UIView()
+        codeContainer.backgroundColor = .white
+        codeContainer.layer.cornerRadius = 20
+        codeContainer.layer.shadowOpacity = 0.7
+        codeContainer.layer.shadowRadius = 10
+        codeContainer.layer.shadowColor = UIColor.gray.cgColor
+        codeContainer.layer.shadowOffset = CGSize(width: 0, height: 2)
+        self.view.addSubview(codeContainer)
+        
+        codeContainer.snp.makeConstraints { (make) in
+            make.left.equalTo(20)
+            make.right.equalTo(-20)
+            make.top.equalTo(accountContainer.snp_bottomMargin).offset(40)
+            make.height.equalTo(44)
+        }
+        
+        /// 账号图标
+        let codeIcon: UIImageView = UIImageView(image: UIImage(named: "account_placeholder_icon"))
+        codeContainer.addSubview(codeIcon)
+        codeIcon.snp.makeConstraints { (make) in
+            make.width.height.equalTo(24)
+            make.left.equalTo(5)
+            make.centerY.equalTo(codeContainer)
+        }
+        
+        /// 验证码输入框
+        codeInput = UITextField()
+        codeInput.textColor = .black
+        codeInput.placeholder = "验证码"
+        codeInput.backgroundColor = .white
+        codeContainer.addSubview(codeInput)
+        codeInput.snp.makeConstraints { (make) in
+            make.left.equalTo(codeIcon.snp_rightMargin).offset(15)
+            make.top.height.equalTo(codeContainer)
+            make.right.equalTo(-100)
+        }
+        
+        
+        /// 获取验证码
+        getCodeButton = UIButton()
+        getCodeButton.setTitle("获取验证码", for: .normal)
+        getCodeButton.setTitleColor(UIColor(hex: "#999999"), for: .normal)
+        getCodeButton.setTitleColor(UIColor(hex: "#888888"), for: .highlighted)
+        getCodeButton.titleLabel?.font = .systemFont(ofSize: 13)
+        getCodeButton.addTarget(self, action: #selector(codeButtonAction(_:)), for: .touchUpInside)
+        codeContainer.addSubview(getCodeButton)
+        getCodeButton.snp.makeConstraints { (make) in
+            make.left.equalTo(codeInput.snp.rightMargin).offset(5)
+            make.height.right.top.equalTo(codeContainer)
+        }
+        
+        
         /// 密码容器
         let passwordContainer: UIView = UIView()
         passwordContainer.backgroundColor = .white
@@ -105,7 +172,7 @@ class LoginViewController: BaseViewController {
         passwordContainer.snp.makeConstraints { (make) in
             make.left.equalTo(20)
             make.right.equalTo(-20)
-            make.top.equalTo(accountContainer.snp_bottomMargin).offset(40)
+            make.top.equalTo(codeContainer.snp_bottomMargin).offset(40)
             make.height.equalTo(44)
         }
         
@@ -143,20 +210,6 @@ class LoginViewController: BaseViewController {
             make.centerY.equalTo(passwordContainer)
         }
         
-        /// 忘记密码
-        let forgetPasswordButton: UIButton = UIButton()
-        forgetPasswordButton.setTitle("忘记密码", for: .normal)
-        forgetPasswordButton.titleLabel?.font = .systemFont(ofSize: 14)
-        forgetPasswordButton.setTitleColor(UIColor(hex: "#778899"), for: .normal)
-        forgetPasswordButton.setTitleColor(UIColor(hex: "#772299"), for: .highlighted)
-        forgetPasswordButton.addTarget(self, action: #selector(forgetButtonAction(_:)), for: .touchUpInside)
-        
-        self.view.addSubview(forgetPasswordButton)
-        forgetPasswordButton.snp.makeConstraints { (make) in
-            make.top.equalTo(passwordContainer.snp_bottomMargin).offset(20)
-            make.height.equalTo(20)
-            make.left.equalTo(passwordContainer).offset(20)
-        }
         
         /// 登录按钮
         let loginButton: UIButton = UIButton()
@@ -170,24 +223,8 @@ class LoginViewController: BaseViewController {
         
         self.view.addSubview(loginButton)
         loginButton.snp.makeConstraints { (make) in
-            make.top.equalTo(forgetPasswordButton.snp_bottomMargin).offset(40)
+            make.top.equalTo(passwordContainer.snp_bottomMargin).offset(80)
             make.height.equalTo(44)
-            make.width.equalTo(240)
-            make.centerX.equalTo(self.view)
-        }
-        
-        /// 注册按钮
-        let registerButton: UIButton = UIButton()
-        registerButton.setTitle("去注册", for: .normal)
-        registerButton.titleLabel?.font = .systemFont(ofSize: 16)
-        registerButton.setTitleColor(UIColor(hex: "#5B8CF2"), for: .normal)
-        registerButton.setTitleColor(UIColor(hex: "#5B8Cc2"), for: .highlighted)
-        registerButton.addTarget(self, action: #selector(registerButtonAction(_:)), for: .touchUpInside)
-        
-        self.view.addSubview(registerButton)
-        registerButton.snp.makeConstraints { (make) in
-            make.top.equalTo(loginButton.snp_bottomMargin).offset(20)
-            make.height.equalTo(20)
             make.width.equalTo(240)
             make.centerX.equalTo(self.view)
         }
@@ -201,10 +238,25 @@ class LoginViewController: BaseViewController {
         }
     }
     
+    
+    /// 返回按钮点击事件
+    @objc func bactButtonAction(_ button: UIButton) -> Void {
+        dismiss(animated: true) {
+            
+        }
+    }
+    
+    
     /// 清空按钮点击回调
     @objc func accountDeleteTapAction() -> Void {
         print("点击了account delete")
         accountInput.text = ""
+    }
+    
+    
+    /// 获取验证码按钮点击事件
+    @objc func codeButtonAction(_ button: UIButton) -> Void {
+        print("获取验证码按钮被点击")
     }
     
     
@@ -215,47 +267,12 @@ class LoginViewController: BaseViewController {
         passwordSecurity.image = UIImage(named: passwordInput.isSecureTextEntry ? "visible_placeholder_icon" : "invisible_placeholder_icon")
     }
     
-    /// 忘记密码按钮点击事件
-    @objc func forgetButtonAction(_ button: UIButton) -> Void {
-        print("忘记密码被点击")
-        let forgetPasswordVC: MTTForgetPasswordViewController = MTTForgetPasswordViewController()
-        forgetPasswordVC.modalPresentationStyle = .fullScreen
-        present(forgetPasswordVC, animated: true) {
-            
-        }
-    }
     
     /// 登录按钮点击事件
     @objc func loginButtonAction(_ button: UIButton) -> Void {
         print("登录被点击")
         if let account = accountInput.text, let password = passwordInput.text {
-            if account.count > 0 && password.count > 0 {
-                NetworkManager.sharedInstance.postRequest(ApiConst.login, parameters: ["username" : account, "password" : password]) { (model) in
-                    if (model.code > 0) {
-                        let loginModel = model as! LoginModel
-                        NetworkManager.sharedInstance.bearerToken = loginModel.access_token
-                        /// 登录成功
-                        /// 获取窗口&切换rootViewController
-                        if let window = UIApplication.shared.windows.first {
-                            window.rootViewController = MTTTabBarController()
-                            window.makeKeyAndVisible()
-                            print("window:\(window)")
-                        } else {
-                            print("window is none")
-                        }
-                    } else {
-                        print("错误码:\(model.code); 错误信息:\(model.msg)")
-                        NetworkManager.sharedInstance.bearerToken = ""
-                        /// 登录失败
-                    }
-                    
-                    /// 缓存token
-                    UserDefaults.standard.set(NetworkManager.sharedInstance.bearerToken, forKey: "token")
-                    
-                }
-            } else {
-                /// 请输入用户名或密码
-            }
+            
             
         } else {
             /// 请输入用户名或密码
