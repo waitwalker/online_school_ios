@@ -11,6 +11,9 @@
 		1E0380B61F2909236E80F79C /* Pods_onlineSchool_ios_onlineSchool_iosUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70FB99CA75CCC0D0A266EEF9 /* Pods_onlineSchool_ios_onlineSchool_iosUITests.framework */; };
 		2881B885C345D4E099E73DB8 /* Pods_onlineSchool_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C87A31B03DB80A6736C6082 /* Pods_onlineSchool_ios.framework */; };
 		6A17078925B7D39B00EC3EE1 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A17078825B7D39B00EC3EE1 /* Extensions.swift */; };
+		6A6F64BB25BE94930098DD04 /* MTTTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6F64BA25BE94930098DD04 /* MTTTabBarController.swift */; };
+		6A6F64C025BE94B20098DD04 /* MTTHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6F64BF25BE94B20098DD04 /* MTTHomeViewController.swift */; };
+		6A6F64C625BE94CE0098DD04 /* MTTPersonalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6F64C525BE94CE0098DD04 /* MTTPersonalViewController.swift */; };
 		6A9BD1DA25B67E1000205DFD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A9BD1D925B67E1000205DFD /* AppDelegate.swift */; };
 		6A9BD1DC25B67E1000205DFD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A9BD1DB25B67E1000205DFD /* SceneDelegate.swift */; };
 		6A9BD1DE25B67E1000205DFD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A9BD1DD25B67E1000205DFD /* ViewController.swift */; };
@@ -48,6 +51,9 @@
 		20192DA51F5832EC883AFCAA /* Pods-onlineSchool-iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-onlineSchool-iosTests.debug.xcconfig"; path = "Target Support Files/Pods-onlineSchool-iosTests/Pods-onlineSchool-iosTests.debug.xcconfig"; sourceTree = "<group>"; };
 		3C87A31B03DB80A6736C6082 /* Pods_onlineSchool_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_onlineSchool_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A17078825B7D39B00EC3EE1 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		6A6F64BA25BE94930098DD04 /* MTTTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTTTabBarController.swift; sourceTree = "<group>"; };
+		6A6F64BF25BE94B20098DD04 /* MTTHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTTHomeViewController.swift; sourceTree = "<group>"; };
+		6A6F64C525BE94CE0098DD04 /* MTTPersonalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTTPersonalViewController.swift; sourceTree = "<group>"; };
 		6A9BD1D625B67E1000205DFD /* onlineSchool-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "onlineSchool-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A9BD1D925B67E1000205DFD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6A9BD1DB25B67E1000205DFD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -126,6 +132,30 @@
 			path = network;
 			sourceTree = "<group>";
 		};
+		6A6F64B825BE93A40098DD04 /* home */ = {
+			isa = PBXGroup;
+			children = (
+				6A6F64BF25BE94B20098DD04 /* MTTHomeViewController.swift */,
+			);
+			path = home;
+			sourceTree = "<group>";
+		};
+		6A6F64B925BE93C10098DD04 /* entrance */ = {
+			isa = PBXGroup;
+			children = (
+				6A6F64BA25BE94930098DD04 /* MTTTabBarController.swift */,
+			);
+			path = entrance;
+			sourceTree = "<group>";
+		};
+		6A6F64C425BE94BF0098DD04 /* personal */ = {
+			isa = PBXGroup;
+			children = (
+				6A6F64C525BE94CE0098DD04 /* MTTPersonalViewController.swift */,
+			);
+			path = personal;
+			sourceTree = "<group>";
+		};
 		6A9BD1CD25B67E1000205DFD = {
 			isa = PBXGroup;
 			children = (
@@ -186,6 +216,9 @@
 		6A9BD21225B67F0D00205DFD /* modules */ = {
 			isa = PBXGroup;
 			children = (
+				6A6F64C425BE94BF0098DD04 /* personal */,
+				6A6F64B925BE93C10098DD04 /* entrance */,
+				6A6F64B825BE93A40098DD04 /* home */,
 				6A9BD25C25B6A4AA00205DFD /* login */,
 				6A9BD22625B685C100205DFD /* Base */,
 				6A9BD21325B67F4400205DFD /* launch */,
@@ -471,12 +504,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A9BD25E25B6A4B700205DFD /* LoginViewController.swift in Sources */,
+				6A6F64BB25BE94930098DD04 /* MTTTabBarController.swift in Sources */,
+				6A6F64C625BE94CE0098DD04 /* MTTPersonalViewController.swift in Sources */,
 				6A9BD22825B685CF00205DFD /* BaseViewController.swift in Sources */,
 				6A9BD21525B67F7E00205DFD /* LaunchAnimationViewController.swift in Sources */,
 				6A9BD1DE25B67E1000205DFD /* ViewController.swift in Sources */,
 				6A9BD1DA25B67E1000205DFD /* AppDelegate.swift in Sources */,
 				6A9BD1DC25B67E1000205DFD /* SceneDelegate.swift in Sources */,
 				6A17078925B7D39B00EC3EE1 /* Extensions.swift in Sources */,
+				6A6F64C025BE94B20098DD04 /* MTTHomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

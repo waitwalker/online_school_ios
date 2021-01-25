@@ -18,20 +18,6 @@ class LoginViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NetworkManager.sharedInstance.postRequest(ApiConst.login, parameters: ["username" : "18600000001", "password" : "a11111"]) { (model) in
-            if (model.code > 0) {
-                let loginModel = model as! LoginModel
-                NetworkManager.sharedInstance.bearerToken = loginModel.access_token
-            } else {
-                print("错误码:\(model.code); 错误信息:\(model.msg)")
-                NetworkManager.sharedInstance.bearerToken = ""
-            }
-            
-            /// 缓存token
-            UserDefaults.standard.set(NetworkManager.sharedInstance.bearerToken, forKey: "token")
-            
-        }
-        
         /// 顶部图片
         let topImageView: UIImageView = UIImageView(image: UIImage(named: "login_background_top"))
         self.view.addSubview(topImageView)
@@ -237,6 +223,31 @@ class LoginViewController: BaseViewController {
     /// 登录按钮点击事件
     @objc func loginButtonAction(_ button: UIButton) -> Void {
         print("登录被点击")
+        if let account = accountInput.text, let password = passwordInput.text {
+            if account.count > 0 && password.count > 0 {
+                NetworkManager.sharedInstance.postRequest(ApiConst.login, parameters: ["username" : account, "password" : password]) { (model) in
+                    if (model.code > 0) {
+                        let loginModel = model as! LoginModel
+                        NetworkManager.sharedInstance.bearerToken = loginModel.access_token
+                        /// 登录成功
+                        
+                    } else {
+                        print("错误码:\(model.code); 错误信息:\(model.msg)")
+                        NetworkManager.sharedInstance.bearerToken = ""
+                        /// 登录失败
+                    }
+                    
+                    /// 缓存token
+                    UserDefaults.standard.set(NetworkManager.sharedInstance.bearerToken, forKey: "token")
+                    
+                }
+            } else {
+                /// 请输入用户名或密码
+            }
+            
+        } else {
+            /// 请输入用户名或密码
+        }
     }
 
     
