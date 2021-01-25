@@ -28,7 +28,7 @@ class MTTTabBarController: UITabBarController {
     private func addChildViewControllers(_ childViewController: BaseViewController, normalIcon: UIImage, selectedIcon: UIImage, tabBarTitle: String) -> Void {
         
         childViewController.tabBarItem.title         = tabBarTitle
-        childViewController.tabBarItem.imageInsets   = UIEdgeInsets(top: 6, left: 2, bottom: -6, right: -2)
+        childViewController.tabBarItem.imageInsets   = UIEdgeInsets(top: 0, left: 2, bottom: -0, right: -2)
         childViewController.tabBarItem.image         = normalIcon
         childViewController.tabBarItem.selectedImage = selectedIcon
         childViewController.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor(hex: "#B0BACB")], for: .normal)

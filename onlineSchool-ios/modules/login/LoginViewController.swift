@@ -230,7 +230,14 @@ class LoginViewController: BaseViewController {
                         let loginModel = model as! LoginModel
                         NetworkManager.sharedInstance.bearerToken = loginModel.access_token
                         /// 登录成功
-                        
+                        /// 获取窗口&切换rootViewController
+                        if let window = UIApplication.shared.windows.first {
+                            window.rootViewController = MTTTabBarController()
+                            window.makeKeyAndVisible()
+                            print("window:\(window)")
+                        } else {
+                            print("window is none")
+                        }
                     } else {
                         print("错误码:\(model.code); 错误信息:\(model.msg)")
                         NetworkManager.sharedInstance.bearerToken = ""

@@ -127,13 +127,6 @@
 			path = extension;
 			sourceTree = "<group>";
 		};
-		6A17079225B7DEFA00EC3EE1 /* network */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = network;
-			sourceTree = "<group>";
-		};
 		6A6F64B825BE93A40098DD04 /* home */ = {
 			isa = PBXGroup;
 			children = (
@@ -184,7 +177,6 @@
 		6A9BD1D825B67E1000205DFD /* onlineSchool-ios */ = {
 			isa = PBXGroup;
 			children = (
-				6A17079225B7DEFA00EC3EE1 /* network */,
 				6A17077F25B7D11100EC3EE1 /* extension */,
 				6A9BD21225B67F0D00205DFD /* modules */,
 				6A9BD1D925B67E1000205DFD /* AppDelegate.swift */,
