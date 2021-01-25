@@ -10,10 +10,7 @@
 		19123A8177B6E02633BF387C /* Pods_onlineSchool_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D830D23BE4EDCCA9B4DABD9 /* Pods_onlineSchool_iosTests.framework */; };
 		1E0380B61F2909236E80F79C /* Pods_onlineSchool_ios_onlineSchool_iosUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70FB99CA75CCC0D0A266EEF9 /* Pods_onlineSchool_ios_onlineSchool_iosUITests.framework */; };
 		2881B885C345D4E099E73DB8 /* Pods_onlineSchool_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C87A31B03DB80A6736C6082 /* Pods_onlineSchool_ios.framework */; };
-		6A1539A625B95BB400031314 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A1539A525B95BB400031314 /* BaseModel.swift */; };
 		6A17078925B7D39B00EC3EE1 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A17078825B7D39B00EC3EE1 /* Extensions.swift */; };
-		6A17079D25B7E09800EC3EE1 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A17079C25B7E09800EC3EE1 /* NetworkManager.swift */; };
-		6A6F634D25BBC4450098DD04 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6F634C25BBC4450098DD04 /* LoginModel.swift */; };
 		6A9BD1DA25B67E1000205DFD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A9BD1D925B67E1000205DFD /* AppDelegate.swift */; };
 		6A9BD1DC25B67E1000205DFD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A9BD1DB25B67E1000205DFD /* SceneDelegate.swift */; };
 		6A9BD1DE25B67E1000205DFD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A9BD1DD25B67E1000205DFD /* ViewController.swift */; };
@@ -50,10 +47,7 @@
 		18924CE2AF35720762FA55C1 /* Pods-onlineSchool-iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-onlineSchool-iosTests.release.xcconfig"; path = "Target Support Files/Pods-onlineSchool-iosTests/Pods-onlineSchool-iosTests.release.xcconfig"; sourceTree = "<group>"; };
 		20192DA51F5832EC883AFCAA /* Pods-onlineSchool-iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-onlineSchool-iosTests.debug.xcconfig"; path = "Target Support Files/Pods-onlineSchool-iosTests/Pods-onlineSchool-iosTests.debug.xcconfig"; sourceTree = "<group>"; };
 		3C87A31B03DB80A6736C6082 /* Pods_onlineSchool_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_onlineSchool_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6A1539A525B95BB400031314 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		6A17078825B7D39B00EC3EE1 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		6A17079C25B7E09800EC3EE1 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		6A6F634C25BBC4450098DD04 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		6A9BD1D625B67E1000205DFD /* onlineSchool-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "onlineSchool-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A9BD1D925B67E1000205DFD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6A9BD1DB25B67E1000205DFD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -128,7 +122,6 @@
 		6A17079225B7DEFA00EC3EE1 /* network */ = {
 			isa = PBXGroup;
 			children = (
-				6A17079C25B7E09800EC3EE1 /* NetworkManager.swift */,
 			);
 			path = network;
 			sourceTree = "<group>";
@@ -213,7 +206,6 @@
 			isa = PBXGroup;
 			children = (
 				6A9BD22725B685CF00205DFD /* BaseViewController.swift */,
-				6A1539A525B95BB400031314 /* BaseModel.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -222,7 +214,6 @@
 			isa = PBXGroup;
 			children = (
 				6A9BD25D25B6A4B700205DFD /* LoginViewController.swift */,
-				6A6F634C25BBC4450098DD04 /* LoginModel.swift */,
 			);
 			path = login;
 			sourceTree = "<group>";
@@ -479,13 +470,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6A1539A625B95BB400031314 /* BaseModel.swift in Sources */,
 				6A9BD25E25B6A4B700205DFD /* LoginViewController.swift in Sources */,
 				6A9BD22825B685CF00205DFD /* BaseViewController.swift in Sources */,
 				6A9BD21525B67F7E00205DFD /* LaunchAnimationViewController.swift in Sources */,
 				6A9BD1DE25B67E1000205DFD /* ViewController.swift in Sources */,
-				6A6F634D25BBC4450098DD04 /* LoginModel.swift in Sources */,
-				6A17079D25B7E09800EC3EE1 /* NetworkManager.swift in Sources */,
 				6A9BD1DA25B67E1000205DFD /* AppDelegate.swift in Sources */,
 				6A9BD1DC25B67E1000205DFD /* SceneDelegate.swift in Sources */,
 				6A17078925B7D39B00EC3EE1 /* Extensions.swift in Sources */,

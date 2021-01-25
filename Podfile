@@ -1,5 +1,7 @@
-# Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+source 'https://github.com/waitwalker/PodSepcs.git'
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '13.0'
+
 
 target 'onlineSchool-ios' do
   # Comment the next line if you don't want to use dynamic frameworks
@@ -9,13 +11,15 @@ target 'onlineSchool-ios' do
   pod 'SnapKit'
   
   # 网络请求库
-  pod 'Alamofire'
+  #pod 'Alamofire'
   
   # lottie 动画
   pod 'lottie-ios'
   
   # 数据解析
-  pod 'HandyJSON'
+  #pod 'HandyJSON'
+  
+  pod 'NetworkLibrary', '~> 1.7.1'
 
   # Pods for onlineSchool-ios
 
