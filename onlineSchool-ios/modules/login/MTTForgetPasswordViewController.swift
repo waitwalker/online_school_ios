@@ -126,7 +126,7 @@ class MTTForgetPasswordViewController: BaseViewController {
         }
         
         /// 账号图标
-        let codeIcon: UIImageView = UIImageView(image: UIImage(named: "account_placeholder_icon"))
+        let codeIcon: UIImageView = UIImageView(image: UIImage(named: "code_placeholder_iconx"))
         codeContainer.addSubview(codeIcon)
         codeIcon.snp.makeConstraints { (make) in
             make.width.height.equalTo(24)
