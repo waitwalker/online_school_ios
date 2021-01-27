@@ -13,7 +13,7 @@ class MTTRegisterViewController: BaseViewController {
     var codeInput: UITextField!
     var getCodeButton: UIButton!
     var passwordInput: UITextField!
-    var areaInput: UITextField!
+    var areaInputLabel: UILabel!
     var passwordSecurity: UIImageView!
     var count : Int?
     var enabled : Bool?
@@ -240,12 +240,16 @@ class MTTRegisterViewController: BaseViewController {
         }
         
         /// 选择地区输入框
-        areaInput = UITextField()
-        areaInput.textColor = .black
-        areaInput.placeholder = "请选择所在地区"
-        areaInput.backgroundColor = .white
-        areaContainer.addSubview(areaInput)
-        areaInput.snp.makeConstraints { (make) in
+        areaInputLabel = UILabel()
+        areaInputLabel.textColor = .black
+        areaInputLabel.text = "请选择所在地区"
+        areaInputLabel.backgroundColor = .white
+        areaInputLabel.isUserInteractionEnabled = true
+        let areaTap = UITapGestureRecognizer(target: self, action: #selector(areaTapAction))
+        areaInputLabel.addGestureRecognizer(areaTap)
+        
+        areaContainer.addSubview(areaInputLabel)
+        areaInputLabel.snp.makeConstraints { (make) in
             make.left.equalTo(areaIcon.snp_rightMargin).offset(15)
             make.top.height.equalTo(areaContainer)
             make.right.equalTo(-40)
@@ -254,23 +258,23 @@ class MTTRegisterViewController: BaseViewController {
         /// 选择地区下拉按钮
         let areaDowndrop: UIImageView = UIImageView(image: UIImage(named: "register_dropdown"))
         areaDowndrop.isUserInteractionEnabled = true
-        let dropTap = UITapGestureRecognizer(target: self, action: #selector(areaDowndropTapAction))
+        let dropTap = UITapGestureRecognizer(target: self, action: #selector(areaTapAction))
         areaDowndrop.addGestureRecognizer(dropTap)
         areaContainer.addSubview(areaDowndrop)
         areaDowndrop.snp.makeConstraints { (make) in
             make.width.height.equalTo(24)
-            make.left.equalTo(areaInput.snp_rightMargin).offset(10)
+            make.left.equalTo(areaInputLabel.snp_rightMargin).offset(10)
             make.centerY.equalTo(areaContainer)
         }
         
         
         /// 登录按钮
         let registerButton: UIButton = UIButton()
-        registerButton.setTitle("登录", for: .normal)
+        registerButton.setTitle("注册", for: .normal)
         registerButton.titleLabel?.font = .systemFont(ofSize: 22)
         registerButton.setTitleColor(.white, for: .normal)
         registerButton.setTitleColor(UIColor(hex: "#772299"), for: .highlighted)
-        registerButton.addTarget(self, action: #selector(loginButtonAction(_:)), for: .touchUpInside)
+        registerButton.addTarget(self, action: #selector(registerButtonAction(_:)), for: .touchUpInside)
         registerButton.backgroundColor = UIColor(hex: "#5B8CF2")
         registerButton.layer.cornerRadius = 22
         
@@ -347,15 +351,13 @@ class MTTRegisterViewController: BaseViewController {
     
     
     /// 选择地区点击回调
-    @objc func areaDowndropTapAction() -> Void {
-        print("点击了account delete")
-        accountInput.text = ""
+    @objc func areaTapAction() -> Void {
+        print("选择地区被点击了")
     }
     
-    
-    /// 登录按钮点击事件
-    @objc func loginButtonAction(_ button: UIButton) -> Void {
-        print("登录被点击")
+    /// 注册按钮点击事件
+    @objc func registerButtonAction(_ button: UIButton) -> Void {
+        print("注册被点击")
         if let account = accountInput.text, let password = passwordInput.text {
             
             
@@ -363,10 +365,5 @@ class MTTRegisterViewController: BaseViewController {
             /// 请输入用户名或密码
         }
     }
-
-    
-    /// 注册按钮点击事件
-    @objc func registerButtonAction(_ button: UIButton) -> Void {
-        print("注册被点击")
-    }
 }
+    
