@@ -293,16 +293,30 @@ class MTTRegisterViewController: BaseViewController {
             make.centerX.equalTo(self.view)
         }
         
+        /// 用户同意按钮
         let agreeIconButton: UIButton = UIButton()
         agreeIconButton.setImage(UIImage(named: "agree_normal_icon"), for: .normal)
         agreeIconButton.addTarget(self, action: #selector(agreeIconButtonAction(_:)), for: .touchUpInside)
         self.view.addSubview(agreeIconButton)
         agreeIconButton.snp.makeConstraints { (make) in
             make.left.equalTo(registerButton).offset(10)
-            make.width.height.equalTo(20)
+            make.width.height.equalTo(18)
             make.top.equalTo(registerButton.snp_bottomMargin).offset(20)
         }
         
+        
+        /// 用户协议按钮
+        let agreementButton: UIButton = UIButton()
+        agreementButton.setTitle("阅读并同意用户服务协议", for: .normal)
+        agreementButton.titleLabel?.font = .systemFont(ofSize: 14)
+        agreementButton.setTitleColor(UIColor(hex: "#666666"), for: .normal)
+        agreementButton.addTarget(self, action: #selector(agreementButtonAction), for: .touchUpInside)
+        self.view.addSubview(agreementButton)
+        agreementButton.snp.makeConstraints { (make) in
+            make.left.equalTo(agreeIconButton.snp_rightMargin).offset(15)
+            make.height.equalTo(20)
+            make.top.equalTo(registerButton.snp_bottomMargin).offset(20)
+        }
         
         
         /// 底部图片
@@ -379,6 +393,11 @@ class MTTRegisterViewController: BaseViewController {
         print("同意图标按钮被点击了")
         button.isSelected = !button.isSelected
         button.setImage(UIImage(named: button.isSelected ? "agree_selected_icon" :"agree_normal_icon" ), for: .normal)
+    }
+    
+    /// 同意协议按钮点击事件
+    @objc func agreementButtonAction() -> Void {
+        print("同意协议按钮被点击了")
     }
     
     /// 注册按钮点击事件
