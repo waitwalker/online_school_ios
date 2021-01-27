@@ -88,7 +88,7 @@ class MTTRegisterViewController: BaseViewController {
         /// 账号输入框
         accountInput = UITextField()
         accountInput.textColor = .black
-        accountInput.placeholder = "手机号"
+        accountInput.placeholder = "输入手机号"
         accountInput.backgroundColor = .white
         accountContainer.addSubview(accountInput)
         accountInput.snp.makeConstraints { (make) in
@@ -138,7 +138,7 @@ class MTTRegisterViewController: BaseViewController {
         /// 验证码输入框
         codeInput = UITextField()
         codeInput.textColor = .black
-        codeInput.placeholder = "验证码"
+        codeInput.placeholder = "输入验证码"
         codeInput.backgroundColor = .white
         codeContainer.addSubview(codeInput)
         codeInput.snp.makeConstraints { (make) in
@@ -191,7 +191,7 @@ class MTTRegisterViewController: BaseViewController {
         /// 密码输入框
         passwordInput = UITextField()
         passwordInput.textColor = .black
-        passwordInput.placeholder = "密码"
+        passwordInput.placeholder = "输入密码"
         passwordInput.isSecureTextEntry = true
         passwordInput.backgroundColor = .white
         passwordContainer.addSubview(passwordInput)
@@ -226,12 +226,12 @@ class MTTRegisterViewController: BaseViewController {
         areaContainer.snp.makeConstraints { (make) in
             make.left.equalTo(20)
             make.right.equalTo(-20)
-            make.top.equalTo(passwordContainer.snp_bottomMargin).offset(60)
+            make.top.equalTo(passwordContainer.snp_bottomMargin).offset(40)
             make.height.equalTo(44)
         }
         
         /// 选择地区图标
-        let areaIcon: UIImageView = UIImageView(image: UIImage(named: "area_placeholder_icon"))
+        let areaIcon: UIImageView = UIImageView(image: UIImage(named: "location_placeholder_icon"))
         areaContainer.addSubview(areaIcon)
         areaIcon.snp.makeConstraints { (make) in
             make.width.height.equalTo(24)
@@ -242,7 +242,7 @@ class MTTRegisterViewController: BaseViewController {
         /// 选择地区输入框
         areaInput = UITextField()
         areaInput.textColor = .black
-        areaInput.placeholder = "手机号"
+        areaInput.placeholder = "请选择所在地区"
         areaInput.backgroundColor = .white
         areaContainer.addSubview(areaInput)
         areaInput.snp.makeConstraints { (make) in
@@ -252,7 +252,7 @@ class MTTRegisterViewController: BaseViewController {
         }
         
         /// 选择地区下拉按钮
-        let areaDowndrop: UIImageView = UIImageView(image: UIImage(named: "login_area_clear_icon"))
+        let areaDowndrop: UIImageView = UIImageView(image: UIImage(named: "register_dropdown"))
         areaDowndrop.isUserInteractionEnabled = true
         let dropTap = UITapGestureRecognizer(target: self, action: #selector(areaDowndropTapAction))
         areaDowndrop.addGestureRecognizer(dropTap)
