@@ -1,25 +1,27 @@
 //
 //  BrowseWebviewController.swift
-//  onlineSchool-ios
+//  
 //
 //  Created by waitwalker on 2021/1/27.
 //
 
 import UIKit
 
-class BrowseWebviewController: UIViewController {
+public class BrowseWebviewController: UIViewController {
     
+    /// URL链接
     private var url: String! = ""
+    /// 导航栏标题
     private var navTitle: String?
     /// 构造函数
-    convenience init(_ url: String, title: String?) {
+    public convenience init(_ url: String, title: String?) {
         self.init()
         self.url = url
         self.navTitle = title
     }
     
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
         

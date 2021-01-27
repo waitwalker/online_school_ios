@@ -1,0 +1,6 @@
+framework module WebviewLibrary {
+  umbrella header "WebviewLibrary-umbrella.h"
+
+  export *
+  module * { export * }
+}

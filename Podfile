@@ -19,7 +19,11 @@ target 'onlineSchool-ios' do
   # 数据解析
   #pod 'HandyJSON'
   
+  # 网络
   pod 'NetworkLibrary', '~> 1.7.1'
+  
+  # webview
+  pod 'WebviewLibrary'
 
   # Pods for onlineSchool-ios
 

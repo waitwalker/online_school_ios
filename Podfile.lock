@@ -6,21 +6,23 @@ PODS:
     - Alamofire (~> 5.4.1)
     - HandyJSON (~> 5.0.2)
   - SnapKit (5.0.1)
+  - WebviewLibrary (0.2)
 
 DEPENDENCIES:
   - lottie-ios
   - NetworkLibrary (~> 1.7.1)
   - SnapKit
+  - WebviewLibrary
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Alamofire
     - HandyJSON
-  https://github.com/waitwalker/PodSepcs.git:
-    - NetworkLibrary
-  trunk:
     - lottie-ios
     - SnapKit
+  https://github.com/waitwalker/PodSepcs.git:
+    - NetworkLibrary
+    - WebviewLibrary
 
 SPEC CHECKSUMS:
   Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
@@ -28,7 +30,8 @@ SPEC CHECKSUMS:
   lottie-ios: 3a3758ef5a008e762faec9c9d50a39842f26d124
   NetworkLibrary: 2bbad03be718bfdd52de1900f95047b948075db9
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  WebviewLibrary: e4150fc361475362de2c011ee04c35129d66c423
 
-PODFILE CHECKSUM: 5d1e53abbca12f989f1bf989671cb5d038086d11
+PODFILE CHECKSUM: fd6bad9d3876c43a45968f6812d24360151d8500
 
 COCOAPODS: 1.10.0
