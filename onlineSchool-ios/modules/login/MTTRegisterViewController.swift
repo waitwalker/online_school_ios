@@ -23,6 +23,13 @@ class MTTRegisterViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        /// 初始化子控件
+        setupSubviews()
+    }
+    
+    /// 初始化子控件
+    private func setupSubviews() -> Void {
+        
         /// 返回按钮
         let backButton: UIButton = UIButton()
         backButton.setImage(UIImage(named: "forget_password_back_icon"), for: .normal)
@@ -286,6 +293,17 @@ class MTTRegisterViewController: BaseViewController {
             make.centerX.equalTo(self.view)
         }
         
+        let agreeIconButton: UIButton = UIButton()
+        agreeIconButton.setImage(UIImage(named: "agree_normal_icon"), for: .normal)
+        agreeIconButton.addTarget(self, action: #selector(agreeIconButtonAction(_:)), for: .touchUpInside)
+        self.view.addSubview(agreeIconButton)
+        agreeIconButton.snp.makeConstraints { (make) in
+            make.left.equalTo(registerButton).offset(10)
+            make.width.height.equalTo(20)
+            make.top.equalTo(registerButton.snp_bottomMargin).offset(20)
+        }
+        
+        
         
         /// 底部图片
         let bottomImageView: UIImageView = UIImageView(image: UIImage(named: "login_background_down"))
@@ -296,6 +314,7 @@ class MTTRegisterViewController: BaseViewController {
         }
     }
     
+    ///////// ###### 点击事件 ###### //////
     
     /// 返回按钮点击事件
     @objc func bactButtonAction(_ button: UIButton) -> Void {
@@ -353,6 +372,13 @@ class MTTRegisterViewController: BaseViewController {
     /// 选择地区点击回调
     @objc func areaTapAction() -> Void {
         print("选择地区被点击了")
+    }
+    
+    /// 同意图标按钮点击事件
+    @objc func agreeIconButtonAction(_ button: UIButton) -> Void {
+        print("同意图标按钮被点击了")
+        button.isSelected = !button.isSelected
+        button.setImage(UIImage(named: button.isSelected ? "agree_selected_icon" :"agree_normal_icon" ), for: .normal)
     }
     
     /// 注册按钮点击事件
