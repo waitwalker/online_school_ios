@@ -154,7 +154,6 @@ class MTTRegisterViewController: BaseViewController {
             make.right.equalTo(-100)
         }
         
-        
         /// 获取验证码
         getCodeButton = UIButton()
         getCodeButton.setTitle("获取验证码", for: .normal)
@@ -167,7 +166,6 @@ class MTTRegisterViewController: BaseViewController {
             make.left.equalTo(codeInput.snp.rightMargin).offset(5)
             make.height.right.top.equalTo(codeContainer)
         }
-        
         
         /// 密码容器
         let passwordContainer: UIView = UIView()
@@ -274,8 +272,21 @@ class MTTRegisterViewController: BaseViewController {
             make.centerY.equalTo(areaContainer)
         }
         
+        /// 区域选择教材提示
+        let areaHintLabel: UILabel = UILabel()
+        areaHintLabel.text = "因区域和教材差异，为保证您的学习效果，请务必准确填写。"
+        areaHintLabel.textColor = .gray
+        areaHintLabel.font = .systemFont(ofSize: 11)
+        self.view.addSubview(areaHintLabel)
         
-        /// 登录按钮
+        areaHintLabel.snp.makeConstraints { (make) in
+            make.centerX.equalTo(areaContainer)
+            make.height.equalTo(20)
+            make.top.equalTo(areaContainer.snp_bottomMargin).offset(15)
+        }
+        
+        
+        /// 注册按钮
         let registerButton: UIButton = UIButton()
         registerButton.setTitle("注册", for: .normal)
         registerButton.titleLabel?.font = .systemFont(ofSize: 22)
@@ -287,7 +298,7 @@ class MTTRegisterViewController: BaseViewController {
         
         self.view.addSubview(registerButton)
         registerButton.snp.makeConstraints { (make) in
-            make.top.equalTo(areaContainer.snp_bottomMargin).offset(80)
+            make.top.equalTo(areaHintLabel.snp_bottomMargin).offset(60)
             make.height.equalTo(44)
             make.width.equalTo(240)
             make.centerX.equalTo(self.view)
@@ -398,6 +409,12 @@ class MTTRegisterViewController: BaseViewController {
     /// 同意协议按钮点击事件
     @objc func agreementButtonAction() -> Void {
         print("同意协议按钮被点击了")
+        let browseVC: BrowseWebviewController = BrowseWebviewController("https://www.baidu.com/", title: "")
+        let navVC: MTTNavigationController = MTTNavigationController(rootViewController: browseVC)
+        navVC.modalPresentationStyle = .fullScreen
+        present(navVC, animated: true) {
+            
+        }
     }
     
     /// 注册按钮点击事件
