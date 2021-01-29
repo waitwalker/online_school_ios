@@ -410,7 +410,7 @@ class MTTRegisterViewController: BaseViewController {
     /// 同意协议按钮点击事件
     @objc func agreementButtonAction() -> Void {
         print("同意协议按钮被点击了")
-        let browseVC: BrowseWebviewController = BrowseWebviewController("https://www.baidu.com/", title: "")
+        let browseVC: BrowseWebviewController = BrowseWebviewController("https://www.etiantian.com/about/mobile/servandpriv.html", title: "用户协议")
         let navVC: MTTNavigationController = MTTNavigationController(rootViewController: browseVC)
         navVC.modalPresentationStyle = .fullScreen
         present(navVC, animated: true) {

@@ -1,0 +1,54 @@
+//
+//  Extension.swift
+//  
+//
+//  Created by waitwalker on 2021/1/28.
+//
+
+import Foundation
+import UIKit
+
+@available(iOS 13.0, *)
+extension UIImage {
+    
+    /// Looks through all bundles attached to pod for image
+    ///
+    /// - parameter named: Image name to lookup
+    ///
+    /// - returns: An image from a bundle
+    class func bundledImage(_ named: String) -> UIImage? {
+        let image = UIImage(named: named)
+        
+        if image == nil {
+            let podBundle = Bundle(for: BrowseWebviewController.classForCoder())
+            if let bundleURL = podBundle.url(forResource: "WebviewLibrary", withExtension: "bundle"),
+                let bundle = Bundle(url: bundleURL) {
+                return UIImage(
+                    named: named,
+                    in: bundle,
+                    compatibleWith: nil)
+            }
+        }
+        return image
+    }
+    
+    /// Scale image to a required size
+    ///
+    /// - parameter size: The height and width to scale to
+    ///
+    /// - returns: A scaled image
+    func scaleImage(toSize newSize: CGSize) -> UIImage? {
+        let newRect = CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height).integral
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 0)
+        if let context = UIGraphicsGetCurrentContext() {
+            context.interpolationQuality = .high
+            let flipVertical = CGAffineTransform(a: 1, b: 0, c: 0, d: -1, tx: 0, ty: newSize.height)
+            context.concatenate(flipVertical)
+            context.draw(self.cgImage!, in: newRect)
+            let newImage = UIImage(cgImage: context.makeImage()!)
+            UIGraphicsEndImageContext()
+            return newImage
+        }
+        return nil
+    }
+}
