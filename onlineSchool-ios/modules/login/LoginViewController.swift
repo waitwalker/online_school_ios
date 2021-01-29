@@ -7,6 +7,7 @@
 
 import UIKit
 import NetworkLibrary
+import Toaster
 
 class LoginViewController: BaseViewController {
     
@@ -164,7 +165,7 @@ class LoginViewController: BaseViewController {
         loginButton.titleLabel?.font = .systemFont(ofSize: 22)
         loginButton.setTitleColor(.white, for: .normal)
         loginButton.setTitleColor(UIColor(hex: "#772299"), for: .highlighted)
-        loginButton.addTarget(self, action: #selector(registerButtonAction(_:)), for: .touchUpInside)
+        loginButton.addTarget(self, action: #selector(loginButtonAction(_:)), for: .touchUpInside)
         loginButton.backgroundColor = UIColor(hex: "#5B8CF2")
         loginButton.layer.cornerRadius = 22
         
@@ -255,10 +256,13 @@ class LoginViewController: BaseViewController {
                 }
             } else {
                 /// 请输入用户名或密码
+                Toast(text: "请输入用户名或密码").show()
+                
             }
             
         } else {
             /// 请输入用户名或密码
+            Toast(text: "请输入用户名或密码").show()
         }
     }
 
