@@ -122,7 +122,7 @@ class LoginViewController: BaseViewController {
         
         /// 密码输入框
         passwordInput = UITextField()
-        passwordInput.text = "a11111"
+        passwordInput.text = "1111"
         passwordInput.textColor = .black
         passwordInput.placeholder = "密码"
         passwordInput.isSecureTextEntry = true
@@ -237,17 +237,23 @@ class LoginViewController: BaseViewController {
                 NetworkManager.sharedInstance.postRequest(ApiConst.login, parameters: ["username" : account, "password" : password]) { (model) in
                     if (model.code > 0) {
                         let loginModel = model as! LoginModel
-                        NetworkManager.sharedInstance.bearerToken = loginModel.access_token
-                        /// 登录成功
-                        /// 获取窗口&切换rootViewController
-                        if let window = UIApplication.shared.windows.first {
-                            window.rootViewController = MTTTabBarController()
-                            window.makeKeyAndVisible()
-                            print("window:\(window)")
+                        if loginModel.code == 1 {
+                            NetworkManager.sharedInstance.bearerToken = loginModel.access_token
+                            /// 登录成功
+                            /// 获取窗口&切换rootViewController
+                            if let window = UIApplication.shared.windows.first {
+                                window.rootViewController = MTTTabBarController()
+                                window.makeKeyAndVisible()
+                                print("window:\(window)")
+                            } else {
+                                print("window is none")
+                            }
+                            
                         } else {
-                            print("window is none")
+                            Toast(text: loginModel.msg).show()
                         }
                         MTTLoadingManager.sharedInstance.stopAnimating()
+                        
                     } else {
                         print("错误码:\(model.code); 错误信息:\(model.msg)")
                         NetworkManager.sharedInstance.bearerToken = ""
@@ -255,7 +261,6 @@ class LoginViewController: BaseViewController {
                         MTTLoadingManager.sharedInstance.stopAnimating()
                         Toast(text: "登录失败请重试").show()
                     }
-                    
                     /// 缓存token
                     UserDefaults.standard.set(NetworkManager.sharedInstance.bearerToken, forKey: "token")
                     
@@ -263,7 +268,6 @@ class LoginViewController: BaseViewController {
             } else {
                 /// 请输入用户名或密码
                 Toast(text: "请输入用户名或密码").show()
-                
             }
             
         } else {
