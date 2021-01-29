@@ -71,6 +71,7 @@ class LoginViewController: BaseViewController {
         
         /// 账号输入框
         accountInput = UITextField()
+        accountInput.text = "ett"
         accountInput.textColor = .black
         accountInput.placeholder = "手机号/账号"
         accountInput.backgroundColor = .white
@@ -121,6 +122,7 @@ class LoginViewController: BaseViewController {
         
         /// 密码输入框
         passwordInput = UITextField()
+        passwordInput.text = "a11111"
         passwordInput.textColor = .black
         passwordInput.placeholder = "密码"
         passwordInput.isSecureTextEntry = true
@@ -231,6 +233,7 @@ class LoginViewController: BaseViewController {
         print("登录被点击")
         if let account = accountInput.text, let password = passwordInput.text {
             if account.count > 0 && password.count > 0 {
+                MTTLoadingManager.sharedInstance.startAnimating()
                 NetworkManager.sharedInstance.postRequest(ApiConst.login, parameters: ["username" : account, "password" : password]) { (model) in
                     if (model.code > 0) {
                         let loginModel = model as! LoginModel
@@ -244,10 +247,13 @@ class LoginViewController: BaseViewController {
                         } else {
                             print("window is none")
                         }
+                        MTTLoadingManager.sharedInstance.stopAnimating()
                     } else {
                         print("错误码:\(model.code); 错误信息:\(model.msg)")
                         NetworkManager.sharedInstance.bearerToken = ""
                         /// 登录失败
+                        MTTLoadingManager.sharedInstance.stopAnimating()
+                        Toast(text: "登录失败请重试").show()
                     }
                     
                     /// 缓存token

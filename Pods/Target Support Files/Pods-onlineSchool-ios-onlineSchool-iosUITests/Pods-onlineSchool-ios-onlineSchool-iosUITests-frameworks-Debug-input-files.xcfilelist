@@ -1,6 +1,7 @@
 ${PODS_ROOT}/Target Support Files/Pods-onlineSchool-ios-onlineSchool-iosUITests/Pods-onlineSchool-ios-onlineSchool-iosUITests-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
 ${BUILT_PRODUCTS_DIR}/HandyJSON/HandyJSON.framework
+${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework
 ${BUILT_PRODUCTS_DIR}/NetworkLibrary/NetworkLibrary.framework
 ${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework
 ${BUILT_PRODUCTS_DIR}/Toaster/Toaster.framework

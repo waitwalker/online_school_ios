@@ -27,6 +27,9 @@ target 'onlineSchool-ios' do
   
   # toast
   pod 'Toaster'
+  
+  # 加载圈
+  pod 'NVActivityIndicatorView'
 
   # Pods for onlineSchool-ios
 
