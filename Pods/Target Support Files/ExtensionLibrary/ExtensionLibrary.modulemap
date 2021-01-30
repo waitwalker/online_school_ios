@@ -1,0 +1,6 @@
+framework module ExtensionLibrary {
+  umbrella header "ExtensionLibrary-umbrella.h"
+
+  export *
+  module * { export * }
+}

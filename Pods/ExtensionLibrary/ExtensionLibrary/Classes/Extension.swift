@@ -1,8 +1,8 @@
 //
 //  Extensions.swift
-//  onlineSchool-ios
 //
-//  Created by waitwalker on 2021/1/20.
+//
+//  Created by waitwalker on 2021/1/30.
 //
 
 import Foundation
@@ -63,4 +63,3 @@ public extension UIColor {
         return String(format: "#%02X%02X%02X", Int(c[0]*255.0), Int(c[1]*255.0), Int(c[2]*255.0))
     }
 }
-

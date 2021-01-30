@@ -25,6 +25,9 @@ target 'onlineSchool-ios' do
   # webview
   pod 'WebviewLibrary'
   
+  # extension
+  pod 'ExtensionLibrary'
+  
   # toast
   pod 'Toaster'
   

@@ -1,8 +1,9 @@
 PODS:
   - Alamofire (5.4.1)
+  - ExtensionLibrary (1.0)
   - HandyJSON (5.0.2)
   - lottie-ios (3.1.9)
-  - NetworkLibrary (1.7.4):
+  - NetworkLibrary (1.7.5):
     - Alamofire (~> 5.4.1)
     - HandyJSON (~> 5.0.2)
   - NVActivityIndicatorView (5.1.1):
@@ -13,6 +14,7 @@ PODS:
   - WebviewLibrary (0.7)
 
 DEPENDENCIES:
+  - ExtensionLibrary
   - lottie-ios
   - NetworkLibrary (~> 1.7.1)
   - NVActivityIndicatorView
@@ -29,19 +31,21 @@ SPEC REPOS:
     - SnapKit
     - Toaster
   https://github.com/waitwalker/PodSepcs.git:
+    - ExtensionLibrary
     - NetworkLibrary
     - WebviewLibrary
 
 SPEC CHECKSUMS:
   Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
+  ExtensionLibrary: 80d108ecb652e9a93250be6f22d44970eb5cba14
   HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
   lottie-ios: 3a3758ef5a008e762faec9c9d50a39842f26d124
-  NetworkLibrary: e914d0f43a81703159d7f12a51574e843cc15bfd
+  NetworkLibrary: f24929721807501615569e8fb39cb561573f790a
   NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   Toaster: c3473963c78e8cabbf6ea6f11ad0fdaae6f54987
   WebviewLibrary: 0c77614b637b4cfd68c46d21c90ea17e271efce2
 
-PODFILE CHECKSUM: 3572512aefbfe81b715db3a041603a86ee5abd0a
+PODFILE CHECKSUM: 9b146819c2ff4e2006052cfc71498bb5b606c7eb
 
 COCOAPODS: 1.10.0
