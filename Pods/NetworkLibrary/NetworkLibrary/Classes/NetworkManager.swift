@@ -26,6 +26,15 @@ public class ApiConst {
     
     /// 登录接口
     public static let login: String = baseURL + "authentication-center/authentication/login?"
+    
+    /// 获取验证码接口
+    public static let code: String = baseURL + "api-cloudaccount-service/api/user/sms"
+    
+    /// 注册接口
+    public static let register: String = baseURL + "api-cloudaccount-service/api/user/register"
+    
+    /// 忘记密码接口
+    public static let forget_password: String = baseURL + "api-cloudaccount-service/api/user/password"
 }
 
 
@@ -57,7 +66,6 @@ public class NetworkManager: NSObject {
     
     
     
-    
     /// get请求方法
     public func getRequest(_ convertible: URLConvertible,
                     parameters: Parameters? = nil,
@@ -71,7 +79,6 @@ public class NetworkManager: NSObject {
         if url == ApiConst.login {
             url = url + mapToQuery(parameters!)
         }
-        
         
         print("\(url)")
         
@@ -100,6 +107,11 @@ public class NetworkManager: NSObject {
                 "Accept": "application/json",
             ]
             url = url + mapToQuery(parameters!)
+        } else if url == ApiConst.register {
+            headers = [
+                "Authorization": "Basic \(base64EncoderString)",
+                "Accept": "application/json",
+            ]
         } else {
             headers = [
                 "Authorization": "Bearer \(NetworkManager.sharedInstance.bearerToken)",
@@ -220,6 +232,104 @@ public class NetworkManager: NSObject {
                     baseModel.msg = "解析错误"
                     response(baseModel)
                     
+                }
+            }
+            break
+            
+        case ApiConst.register:
+            
+            if jsonObjType.contains("Array") {
+                /// 数组类型
+                
+            } else if jsonObjType.contains("Dictionary") {
+                
+                /// 字典类型
+                if let model = RegisterModel.deserialize(from: (responseObj as! Dictionary)) {
+                    print("转换后的model:\(model)")
+                    response(model)
+                } else {
+                    let baseModel = BaseModel()
+                    baseModel.code = -601;
+                    baseModel.msg = "解析错误"
+                    response(baseModel)
+                }
+            } else if jsonObjType.contains("String") {
+                /// 字符串类型
+                if let model = RegisterModel.deserialize(from: (responseObj as! String)) {
+                    print("转换后的model:\(model)")
+                    model.code = code == 200 ? 1 : code
+                    response(model)
+                } else {
+                    let baseModel = BaseModel()
+                    baseModel.code = -601;
+                    baseModel.msg = "解析错误"
+                    response(baseModel)
+                    
+                }
+            }
+            break
+            
+        case ApiConst.code:
+            
+            if jsonObjType.contains("Array") {
+                /// 数组类型
+                
+            } else if jsonObjType.contains("Dictionary") {
+                
+                /// 字典类型
+                if let model = CodeModel.deserialize(from: (responseObj as! Dictionary)) {
+                    print("转换后的model:\(model)")
+                    response(model)
+                } else {
+                    let baseModel = BaseModel()
+                    baseModel.code = -601;
+                    baseModel.msg = "解析错误"
+                    response(baseModel)
+                }
+            } else if jsonObjType.contains("String") {
+                /// 字符串类型
+                if let model = CodeModel.deserialize(from: (responseObj as! String)) {
+                    print("转换后的model:\(model)")
+                    model.code = code == 200 ? 1 : code
+                    response(model)
+                } else {
+                    let baseModel = BaseModel()
+                    baseModel.code = -601;
+                    baseModel.msg = "解析错误"
+                    response(baseModel)
+                    
+                }
+            }
+            break
+            
+        case ApiConst.forget_password:
+            
+            if jsonObjType.contains("Array") {
+                /// 数组类型
+                
+            } else if jsonObjType.contains("Dictionary") {
+                
+                /// 字典类型
+                if let model = ForgetPasswordModel.deserialize(from: (responseObj as! Dictionary)) {
+                    print("转换后的model:\(model)")
+                    response(model)
+                } else {
+                    let baseModel = BaseModel()
+                    baseModel.code = -601;
+                    baseModel.msg = "解析错误"
+                    response(baseModel)
+                }
+            } else if jsonObjType.contains("String") {
+                /// 字符串类型
+                if let model = ForgetPasswordModel.deserialize(from: (responseObj as! String)) {
+                    print("转换后的model:\(model)")
+                    model.code = code == 200 ? 1 : code
+                    response(model)
+                } else {
+                    let baseModel = BaseModel()
+                    baseModel.code = -601;
+                    baseModel.msg = "解析错误"
+                    response(baseModel)
                 }
             }
             break
