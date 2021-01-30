@@ -1,6 +1,6 @@
 PODS:
   - Alamofire (5.4.1)
-  - ExtensionLibrary (1.0)
+  - ExtensionLibrary (1.8)
   - HandyJSON (5.0.2)
   - lottie-ios (3.1.9)
   - NetworkLibrary (1.7.5):
@@ -37,7 +37,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
-  ExtensionLibrary: 80d108ecb652e9a93250be6f22d44970eb5cba14
+  ExtensionLibrary: 3829f9e890c9c5c4655d839bda7ba7736ac85b5c
   HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
   lottie-ios: 3a3758ef5a008e762faec9c9d50a39842f26d124
   NetworkLibrary: f24929721807501615569e8fb39cb561573f790a
