@@ -77,15 +77,15 @@ public extension UIButton {
 
     /// 按钮设置图片位置
     func imageWithPosition(_ postion: MTTButtonImagePostion, spacing: CGFloat) -> Void {
-        self.setTitle(self.currentTitle, for: UIControlState.normal)
-        self.setImage(self.currentImage, for: UIControlState.normal)
+        self.setTitle(self.currentTitle, for: .normal)
+        self.setImage(self.currentImage, for: .normal)
         
         let imageWidth = self.imageView?.image?.size.width
         let imageHeight = self.imageView?.image?.size.height
         
         let titleLabelTitle:NSString = (self.titleLabel?.text! as NSString?)!
-        let labelWidth = titleLabelTitle.size(withAttributes: [NSAttributedStringKey.font : self.titleLabel?.font as Any]).width
-        let labelHeight = titleLabelTitle.size(withAttributes: [NSAttributedStringKey.font : self.titleLabel?.font as Any]).height
+        let labelWidth = titleLabelTitle.size(withAttributes: [NSAttributedString.Key.font : self.titleLabel?.font as Any]).width
+        let labelHeight = titleLabelTitle.size(withAttributes: [NSAttributedString.Key.font : self.titleLabel?.font as Any]).height
         
         let imageOffsetX = (imageWidth! + labelWidth) / 2 - imageWidth! / 2 //image中心移动的x距离
         let imageOffsetY = imageHeight! / 2 + spacing / 2 //image中心移动的y距离
@@ -99,29 +99,29 @@ public extension UIButton {
         
         switch postion {
             case MTTButtonImagePostion.Left:
-                self.imageEdgeInsets = UIEdgeInsetsMake(0, -spacing/2, 0, spacing/2);
-                self.titleEdgeInsets = UIEdgeInsetsMake(0, spacing/2, 0, -spacing/2);
-                self.contentEdgeInsets = UIEdgeInsetsMake(0, spacing/2, 0, spacing/2);
+                self.imageEdgeInsets = UIEdgeInsets(top: 0, left: -spacing/2, bottom: 0, right: spacing/2);
+                self.titleEdgeInsets = UIEdgeInsets(top: 0, left: spacing/2, bottom: 0, right: -spacing/2);
+                self.contentEdgeInsets = UIEdgeInsets(top: 0, left: spacing/2, bottom: 0, right: spacing/2);
             break
         case MTTButtonImagePostion.Right:
-                self.imageEdgeInsets = UIEdgeInsetsMake(0, labelWidth + spacing/2, 0, -(labelWidth + spacing/2));
-                self.titleEdgeInsets = UIEdgeInsetsMake(0, -(imageWidth! + spacing/2), 0, imageWidth! + spacing/2);
-                self.contentEdgeInsets = UIEdgeInsetsMake(0, spacing/2, 0, spacing/2);
+            self.imageEdgeInsets = UIEdgeInsets(top: 0, left: labelWidth + spacing/2, bottom: 0, right: -(labelWidth + spacing/2));
+            self.titleEdgeInsets = UIEdgeInsets(top: 0, left: -(imageWidth! + spacing/2), bottom: 0, right: imageWidth! + spacing/2);
+            self.contentEdgeInsets = UIEdgeInsets(top: 0, left: spacing/2, bottom: 0, right: spacing/2);
             break
         case MTTButtonImagePostion.Top:
-                self.imageEdgeInsets = UIEdgeInsetsMake(-imageOffsetY, imageOffsetX, imageOffsetY, -imageOffsetX);
-                self.titleEdgeInsets = UIEdgeInsetsMake(labelOffsetY, -labelOffsetX, -labelOffsetY, labelOffsetX);
-                self.contentEdgeInsets = UIEdgeInsetsMake(imageOffsetY, -changedWidth/2, changedHeight-imageOffsetY, -changedWidth/2);
+            self.imageEdgeInsets = UIEdgeInsets(top: -imageOffsetY, left: imageOffsetX, bottom: imageOffsetY, right: -imageOffsetX);
+            self.titleEdgeInsets = UIEdgeInsets(top: labelOffsetY, left: -labelOffsetX, bottom: -labelOffsetY, right: labelOffsetX);
+            self.contentEdgeInsets = UIEdgeInsets(top: imageOffsetY, left: -changedWidth/2, bottom: changedHeight-imageOffsetY, right: -changedWidth/2);
             break
         case MTTButtonImagePostion.Bottom:
-                self.imageEdgeInsets = UIEdgeInsetsMake(imageOffsetY, imageOffsetX, -imageOffsetY, -imageOffsetX);
-                self.titleEdgeInsets = UIEdgeInsetsMake(-labelOffsetY, -labelOffsetX, labelOffsetY, labelOffsetX);
-                self.contentEdgeInsets = UIEdgeInsetsMake(changedHeight-imageOffsetY, -changedWidth/2, imageOffsetY, -changedWidth/2);
+            self.imageEdgeInsets = UIEdgeInsets(top: imageOffsetY, left: imageOffsetX, bottom: -imageOffsetY, right: -imageOffsetX);
+            self.titleEdgeInsets = UIEdgeInsets(top: -labelOffsetY, left: -labelOffsetX, bottom: labelOffsetY, right: labelOffsetX);
+            self.contentEdgeInsets = UIEdgeInsets(top: changedHeight-imageOffsetY, left: -changedWidth/2, bottom: imageOffsetY, right: -changedWidth/2);
             break
         }
     }
     
-    func setBackgroundColor(_ color: UIColor, forState: UIControlState) {
+    func setBackgroundColor(_ color: UIColor, forState: UIControl.State) {
         UIGraphicsBeginImageContext(CGSize(width: 1, height: 1))
         UIGraphicsGetCurrentContext()?.setFillColor(color.cgColor)
         UIGraphicsGetCurrentContext()?.fill(CGRect(x: 0, y: 0, width: 1, height: 1))
@@ -153,7 +153,7 @@ public extension String {
     /// - Returns: 尺寸
     func getStringSize(text: String, rectSize: CGSize,fontSize: CGFloat) -> CGSize {
         let str = text as NSString
-        let rect = str.boundingRect(with: rectSize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: fontSize)], context: nil)
+        let rect = str.boundingRect(with: rectSize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: fontSize)], context: nil)
         
         return rect.size
     }
@@ -278,8 +278,8 @@ public extension String {
         let style = NSMutableParagraphStyle.init()
         style.lineSpacing = 5
         let font = UIFont.systemFont(ofSize: 14)
-        attributeString.addAttribute(NSAttributedStringKey.paragraphStyle, value: style, range: NSMakeRange(0, text.count))
-        attributeString.addAttribute(NSAttributedStringKey.font, value: font, range: NSMakeRange(0, text.count))
+        attributeString.addAttribute(NSAttributedString.Key.paragraphStyle, value: style, range: NSMakeRange(0, text.count))
+        attributeString.addAttribute(NSAttributedString.Key.font, value: font, range: NSMakeRange(0, text.count))
         let options = UInt8(NSStringDrawingOptions.usesLineFragmentOrigin.rawValue) | UInt8(NSStringDrawingOptions.usesFontLeading.rawValue)
         let rect = attributeString.boundingRect(with: CGSize.init(width: UIScreen.main.bounds.width - 60 - 20, height: CGFloat.greatestFiniteMagnitude), options: NSStringDrawingOptions(rawValue: NSStringDrawingOptions.RawValue(options)), context: nil)
         return rect.size.height
@@ -979,17 +979,17 @@ public extension UIImage {
     
     /// EZSE: Returns base64 string
     var base64: String {
-        return UIImageJPEGRepresentation(self, 1.0)!.base64EncodedString()
+        return self.jpegData(compressionQuality: 1.0)!.base64EncodedString()
     }
     
     /// EZSE: Returns compressed image to rate from 0 to 1
     func compressImage(rate: CGFloat) -> Data? {
-        return UIImageJPEGRepresentation(self, rate)
+        return self.jpegData(compressionQuality: rate)
     }
 
     /// EZSE: Returns Image size in Bytes
     func getSizeAsBytes() -> Int {
-        return UIImageJPEGRepresentation(self, 1)?.count ?? 0
+        return self.jpegData(compressionQuality: 1)?.count ?? 0
     }
 
     /// EZSE: Returns Image size in Kylobites
@@ -1054,7 +1054,7 @@ public extension UIImage {
         }
         let scaledBounds: CGRect = CGRect(x: bound.x * self.scale, y: bound.y * self.scale, width: bound.w * self.scale, height: bound.h * self.scale)
         let imageRef = self.cgImage?.cropping(to: scaledBounds)
-        let croppedImage: UIImage = UIImage(cgImage: imageRef!, scale: self.scale, orientation: UIImageOrientation.up)
+        let croppedImage: UIImage = UIImage(cgImage: imageRef!, scale: self.scale, orientation: UIImage.Orientation.up)
         return croppedImage
     }
 
@@ -1212,11 +1212,6 @@ public func ==<T: Equatable>(lhs: [T]?, rhs: [T]?) -> Bool {
 
 extension Array {
 
-    ///EZSE: Get a sub array from range of index
-    public func get(at range: ClosedRange<Int>) -> Array {
-        let halfOpenClampedRange = Range(range).clamped(to: Range(indices))
-        return Array(self[halfOpenClampedRange])
-    }
 
     /// EZSE: Checks if array contains at least 1 item which type is same with given element's type
     public func containsType<T>(of element: T) -> Bool {
@@ -1295,12 +1290,12 @@ extension Array where Element: Equatable {
 
     /// EZSE: Checks if the main array contains the parameter array
     public func contains(_ array: [Element]) -> Bool {
-        return array.testAll { self.index(of: $0) ?? -1 >= 0 }
+        return array.testAll { self.firstIndex(of: $0) ?? -1 >= 0 }
     }
 
     /// EZSE: Checks if self contains a list of items.
     public func contains(_ elements: Element...) -> Bool {
-        return elements.testAll { self.index(of: $0) ?? -1 >= 0 }
+        return elements.testAll { self.firstIndex(of: $0) ?? -1 >= 0 }
     }
 
     /// EZSE: Returns the indexes of the object
@@ -1315,7 +1310,7 @@ extension Array where Element: Equatable {
 
     /// EZSE: Removes the first given object
     public mutating func removeFirst(_ element: Element) {
-        guard let index = index(of: element) else { return }
+        guard let index = firstIndex(of: element) else { return }
         self.remove(at: index)
     }
 
@@ -2093,7 +2088,7 @@ public extension NSAttributedString {
         guard let copy = self.mutableCopy() as? NSMutableAttributedString else { return self }
 
         let range = (self.string as NSString).range(of: self.string)
-        copy.addAttributes([NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: UIFont.systemFontSize)], range: range)
+        copy.addAttributes([NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: UIFont.systemFontSize)], range: range)
         return copy
     }
 
@@ -2104,7 +2099,7 @@ public extension NSAttributedString {
         guard let copy = self.mutableCopy() as? NSMutableAttributedString else { return self }
 
         let range = (self.string as NSString).range(of: self.string)
-        copy.addAttributes([NSAttributedStringKey.underlineStyle: NSUnderlineStyle.styleSingle.rawValue], range: range)
+        copy.addAttributes([NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue], range: range)
         return copy
     }
 
@@ -2115,7 +2110,7 @@ public extension NSAttributedString {
         guard let copy = self.mutableCopy() as? NSMutableAttributedString else { return self }
 
         let range = (self.string as NSString).range(of: self.string)
-        copy.addAttributes([NSAttributedStringKey.font: UIFont.italicSystemFont(ofSize: UIFont.systemFontSize)], range: range)
+        copy.addAttributes([NSAttributedString.Key.font: UIFont.italicSystemFont(ofSize: UIFont.systemFontSize)], range: range)
         return copy
     }
 
@@ -2125,7 +2120,7 @@ public extension NSAttributedString {
 
         let range = (self.string as NSString).range(of: self.string)
         let attributes = [
-            NSAttributedStringKey.strikethroughStyle: NSNumber(value: NSUnderlineStyle.styleSingle.rawValue as Int)]
+            NSAttributedString.Key.strikethroughStyle: NSNumber(value: NSUnderlineStyle.single.rawValue as Int)]
         copy.addAttributes(attributes, range: range)
 
         return copy
@@ -2138,7 +2133,7 @@ public extension NSAttributedString {
         guard let copy = self.mutableCopy() as? NSMutableAttributedString else { return self }
 
         let range = (self.string as NSString).range(of: self.string)
-        copy.addAttributes([NSAttributedStringKey.foregroundColor: color], range: range)
+        copy.addAttributes([NSAttributedString.Key.foregroundColor: color], range: range)
         return copy
     }
 }
@@ -2788,7 +2783,7 @@ public extension String {
     
     ///EZSE: Returns bold NSAttributedString
     func bold() -> NSAttributedString {
-        let boldString = NSMutableAttributedString(string: self, attributes: [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: UIFont.systemFontSize)])
+        let boldString = NSMutableAttributedString(string: self, attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: UIFont.systemFontSize)])
         return boldString
     }
     
@@ -2798,7 +2793,7 @@ public extension String {
 
     ///EZSE: Returns underlined NSAttributedString
     func underline() -> NSAttributedString {
-        let underlineString = NSAttributedString(string: self, attributes: [NSAttributedStringKey.underlineStyle: NSUnderlineStyle.styleSingle.rawValue])
+        let underlineString = NSAttributedString(string: self, attributes: [NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue])
         return underlineString
     }
     
@@ -2808,7 +2803,7 @@ public extension String {
     
     ///EZSE: Returns italic NSAttributedString
     func italic() -> NSAttributedString {
-        let italicString = NSMutableAttributedString(string: self, attributes: [NSAttributedStringKey.font: UIFont.italicSystemFont(ofSize: UIFont.systemFontSize)])
+        let italicString = NSMutableAttributedString(string: self, attributes: [NSAttributedString.Key.font: UIFont.italicSystemFont(ofSize: UIFont.systemFontSize)])
         return italicString
     }
     
@@ -2818,11 +2813,11 @@ public extension String {
     
     ///EZSE: Returns hight of rendered string
     func height(_ width: CGFloat, font: UIFont, lineBreakMode: NSLineBreakMode?) -> CGFloat {
-        var attrib: [NSAttributedStringKey: Any] = [NSAttributedStringKey.font: font]
+        var attrib: [NSAttributedString.Key: Any] = [NSAttributedString.Key.font: font]
         if lineBreakMode != nil {
             let paragraphStyle = NSMutableParagraphStyle()
             paragraphStyle.lineBreakMode = lineBreakMode!
-            attrib.updateValue(paragraphStyle, forKey: NSAttributedStringKey.paragraphStyle)
+            attrib.updateValue(paragraphStyle, forKey: NSAttributedString.Key.paragraphStyle)
         }
         let size = CGSize(width: width, height: CGFloat(Double.greatestFiniteMagnitude))
         return ceil((self as NSString).boundingRect(with: size, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: attrib, context: nil).height)
@@ -2834,7 +2829,7 @@ public extension String {
     
     ///EZSE: Returns NSAttributedString
     func color(_ color: UIColor) -> NSAttributedString {
-        let colorString = NSMutableAttributedString(string: self, attributes: [NSAttributedStringKey.foregroundColor: color])
+        let colorString = NSMutableAttributedString(string: self, attributes: [NSAttributedString.Key.foregroundColor: color])
         return colorString
     }
     
@@ -2853,7 +2848,7 @@ public extension String {
         }
         let attrText = NSMutableAttributedString(string: self)
         for range in ranges {
-            attrText.addAttribute(NSAttributedStringKey.foregroundColor, value: color, range: range)
+            attrText.addAttribute(NSAttributedString.Key.foregroundColor, value: color, range: range)
         }
         return attrText
     }
@@ -3170,8 +3165,7 @@ public struct ez {
     public static var screenWidth: CGFloat {
 
         #if os(iOS)
-
-        if UIInterfaceOrientationIsPortrait(screenOrientation) {
+        if screenOrientation.isPortrait {
             return UIScreen.main.bounds.size.width
         } else {
             return UIScreen.main.bounds.size.height
@@ -3189,7 +3183,7 @@ public struct ez {
 
         #if os(iOS)
 
-        if UIInterfaceOrientationIsPortrait(screenOrientation) {
+        if screenOrientation.isPortrait {
             return UIScreen.main.bounds.size.height
         } else {
             return UIScreen.main.bounds.size.width
@@ -3213,7 +3207,7 @@ public struct ez {
 
     /// EZSE: Return screen's height without StatusBar
     public static var screenHeightWithoutStatusBar: CGFloat {
-        if UIInterfaceOrientationIsPortrait(screenOrientation) {
+        if screenOrientation.isPortrait {
             return UIScreen.main.bounds.size.height - screenStatusBarHeight
         } else {
             return UIScreen.main.bounds.size.width - screenStatusBarHeight
@@ -3232,7 +3226,7 @@ public struct ez {
     /// EZSE: Calls action when a screen shot is taken
     public static func detectScreenShot(_ action: @escaping () -> Void) {
         let mainQueue = OperationQueue.main
-        _ = NotificationCenter.default.addObserver(forName: NSNotification.Name.UIApplicationUserDidTakeScreenshot, object: nil, queue: mainQueue) { _ in
+        _ = NotificationCenter.default.addObserver(forName: UIApplication.userDidTakeScreenshotNotification, object: nil, queue: mainQueue) { _ in
             // executes after screenshot
             action()
         }
@@ -3733,7 +3727,7 @@ public extension UITextField {
         let leftView = UIView()
         leftView.frame = CGRect(x: 0, y: 0, width: blankSize, height: frame.height)
         self.leftView = leftView
-        self.leftViewMode = UITextFieldViewMode.always
+        self.leftViewMode = UITextField.ViewMode.always
     }
 
     /// EZSE: Add a image icon on the left side of the textfield
@@ -3745,7 +3739,7 @@ public extension UITextField {
         imgView.image = image
         leftView.addSubview(imgView)
         self.leftView = leftView
-        self.leftViewMode = UITextFieldViewMode.always
+        self.leftViewMode = UITextField.ViewMode.always
     }
 
     /// EZSE: Ways to validate by comparison
@@ -3869,52 +3863,52 @@ public extension UIViewController {
     ///
     /// ⚠️ You also need to implement ```keyboardWillShowNotification(_ notification: Notification)```
     func addKeyboardWillShowNotification() {
-        self.addNotificationObserver(NSNotification.Name.UIKeyboardWillShow.rawValue, selector: #selector(UIViewController.keyboardWillShowNotification(_:)))
+        self.addNotificationObserver(UIResponder.keyboardWillShowNotification.rawValue, selector: #selector(UIViewController.keyboardWillShowNotification(_:)))
     }
     
     ///EZSE:  Adds a NotificationCenter Observer for keyboardDidShowNotification()
     ///
     /// ⚠️ You also need to implement ```keyboardDidShowNotification(_ notification: Notification)```
     func addKeyboardDidShowNotification() {
-        self.addNotificationObserver(NSNotification.Name.UIKeyboardDidShow.rawValue, selector: #selector(UIViewController.keyboardDidShowNotification(_:)))
+        self.addNotificationObserver(UIResponder.keyboardDidShowNotification.rawValue, selector: #selector(UIViewController.keyboardDidShowNotification(_:)))
     }
     
     ///EZSE:  Adds a NotificationCenter Observer for keyboardWillHideNotification()
     ///
     /// ⚠️ You also need to implement ```keyboardWillHideNotification(_ notification: Notification)```
     func addKeyboardWillHideNotification() {
-        self.addNotificationObserver(NSNotification.Name.UIKeyboardWillHide.rawValue, selector: #selector(UIViewController.keyboardWillHideNotification(_:)))
+        self.addNotificationObserver(UIResponder.keyboardWillHideNotification.rawValue, selector: #selector(UIViewController.keyboardWillHideNotification(_:)))
     }
     
     ///EZSE:  Adds a NotificationCenter Observer for keyboardDidHideNotification()
     ///
     /// ⚠️ You also need to implement ```keyboardDidHideNotification(_ notification: Notification)```
     func addKeyboardDidHideNotification() {
-        self.addNotificationObserver(NSNotification.Name.UIKeyboardDidHide.rawValue, selector: #selector(UIViewController.keyboardDidHideNotification(_:)))
+        self.addNotificationObserver(UIResponder.keyboardDidHideNotification.rawValue, selector: #selector(UIViewController.keyboardDidHideNotification(_:)))
     }
     
     ///EZSE: Removes keyboardWillShowNotification()'s NotificationCenter Observer
     func removeKeyboardWillShowNotification() {
-        self.removeNotificationObserver(NSNotification.Name.UIKeyboardWillShow.rawValue)
+        self.removeNotificationObserver(UIResponder.keyboardWillShowNotification.rawValue)
     }
     
     ///EZSE: Removes keyboardDidShowNotification()'s NotificationCenter Observer
     func removeKeyboardDidShowNotification() {
-        self.removeNotificationObserver(NSNotification.Name.UIKeyboardDidShow.rawValue)
+        self.removeNotificationObserver(UIResponder.keyboardDidShowNotification.rawValue)
     }
     
     ///EZSE: Removes keyboardWillHideNotification()'s NotificationCenter Observer
     func removeKeyboardWillHideNotification() {
-        self.removeNotificationObserver(NSNotification.Name.UIKeyboardWillHide.rawValue)
+        self.removeNotificationObserver(UIResponder.keyboardWillHideNotification.rawValue)
     }
     
     ///EZSE: Removes keyboardDidHideNotification()'s NotificationCenter Observer
     func removeKeyboardDidHideNotification() {
-        self.removeNotificationObserver(NSNotification.Name.UIKeyboardDidHide.rawValue)
+        self.removeNotificationObserver(UIResponder.keyboardDidHideNotification.rawValue)
     }
     
     @objc func keyboardDidShowNotification(_ notification: Notification) {
-        if let nInfo = (notification as NSNotification).userInfo, let value = nInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue {
+        if let nInfo = (notification as NSNotification).userInfo, let value = nInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
             
             let frame = value.cgRectValue
             keyboardDidShowWithFrame(frame)
@@ -3922,7 +3916,7 @@ public extension UIViewController {
     }
     
     @objc func keyboardWillShowNotification(_ notification: Notification) {
-        if let nInfo = (notification as NSNotification).userInfo, let value = nInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue {
+        if let nInfo = (notification as NSNotification).userInfo, let value = nInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
             
             let frame = value.cgRectValue
             keyboardWillShowWithFrame(frame)
@@ -3930,7 +3924,7 @@ public extension UIViewController {
     }
     
     @objc func keyboardWillHideNotification(_ notification: Notification) {
-        if let nInfo = (notification as NSNotification).userInfo, let value = nInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue {
+        if let nInfo = (notification as NSNotification).userInfo, let value = nInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
             
             let frame = value.cgRectValue
             keyboardWillHideWithFrame(frame)
@@ -3938,7 +3932,7 @@ public extension UIViewController {
     }
     
     @objc func keyboardDidHideNotification(_ notification: Notification) {
-        if let nInfo = (notification as NSNotification).userInfo, let value = nInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue {
+        if let nInfo = (notification as NSNotification).userInfo, let value = nInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
             
             let frame = value.cgRectValue
             keyboardDidHideWithFrame(frame)
@@ -4092,9 +4086,9 @@ public extension UIViewController {
     
     ///EZSE: Adds the specified view controller as a child of the current view controller.
     func addAsChildViewController(_ vc: UIViewController, toView: UIView) {
-        self.addChildViewController(vc)
+        self.addChild(vc)
         toView.addSubview(vc.view)
-        vc.didMove(toParentViewController: self)
+        vc.didMove(toParent: self)
     }
     
     ///EZSE: Adds image named: as a UIImageView in the Background
@@ -4103,7 +4097,7 @@ public extension UIViewController {
         let imageView = UIImageView(frame: view.frame)
         imageView.image = image
         view.addSubview(imageView)
-        view.sendSubview(toBack: imageView)
+        view.sendSubviewToBack(imageView)
     }
     
     ///EZSE: Adds UIImage as a UIImageView in the Background
@@ -4111,7 +4105,7 @@ public extension UIViewController {
         let imageView = UIImageView(frame: view.frame)
         imageView.image = image
         view.addSubview(imageView)
-        view.sendSubview(toBack: imageView)
+        view.sendSubviewToBack(imageView)
     }
 }
 
@@ -4519,7 +4513,7 @@ extension UIView {
             delay: 0,
             usingSpringWithDamping: UIViewAnimationSpringDamping,
             initialSpringVelocity: UIViewAnimationSpringVelocity,
-            options: UIViewAnimationOptions.allowAnimatedContent,
+            options: UIView.AnimationOptions.allowAnimatedContent,
             animations: animations,
             completion: completion
         )
@@ -4592,7 +4586,7 @@ extension UIView {
     }
 
     /// EZSwiftExtensions
-    public func addSwipeGesture(direction: UISwipeGestureRecognizerDirection, numberOfTouches: Int = 1, target: AnyObject, action: Selector) {
+    public func addSwipeGesture(direction: UISwipeGestureRecognizer.Direction, numberOfTouches: Int = 1, target: AnyObject, action: Selector) {
         let swipe = UISwipeGestureRecognizer(target: target, action: action)
         swipe.direction = direction
 
@@ -4607,7 +4601,7 @@ extension UIView {
     }
 
     /// EZSwiftExtensions - Make sure you use  "[weak self] (gesture) in" if you are using the keyword self inside the closure or there might be a memory leak
-    public func addSwipeGesture(direction: UISwipeGestureRecognizerDirection, numberOfTouches: Int = 1, action: ((UISwipeGestureRecognizer) -> Void)?) {
+    public func addSwipeGesture(direction: UISwipeGestureRecognizer.Direction, numberOfTouches: Int = 1, action: ((UISwipeGestureRecognizer) -> Void)?) {
         let swipe = BlockSwipe(direction: direction, fingerCount: numberOfTouches, action: action)
         addGestureRecognizer(swipe)
         isUserInteractionEnabled = true
@@ -4803,16 +4797,16 @@ public class BlockButton: UIButton {
     }
 
     private func defaultInit() {
-        addTarget(self, action: #selector(BlockButton.didPressed(_:)), for: UIControlEvents.touchUpInside)
-        addTarget(self, action: #selector(BlockButton.highlight), for: [UIControlEvents.touchDown, UIControlEvents.touchDragEnter])
+        addTarget(self, action: #selector(BlockButton.didPressed(_:)), for: UIControl.Event.touchUpInside)
+        addTarget(self, action: #selector(BlockButton.highlight), for: [UIControl.Event.touchDown, UIControl.Event.touchDragEnter])
         addTarget(self, action: #selector(BlockButton.unhighlight), for: [
-            UIControlEvents.touchUpInside,
-            UIControlEvents.touchUpOutside,
-            UIControlEvents.touchCancel,
-            UIControlEvents.touchDragExit
+            UIControl.Event.touchUpInside,
+            UIControl.Event.touchUpOutside,
+            UIControl.Event.touchCancel,
+            UIControl.Event.touchDragExit
         ])
-        setTitleColor(UIColor.black, for: UIControlState.normal)
-        setTitleColor(UIColor.blue, for: UIControlState.selected)
+        setTitleColor(UIColor.black, for: UIControl.State.normal)
+        setTitleColor(UIColor.blue, for: UIControl.State.selected)
     }
 
     open func addAction(_ action: @escaping BlockButtonAction) {
@@ -4877,7 +4871,7 @@ public class BlockLongPress: UILongPressGestureRecognizer {
     }
 
     @objc open func didLongPressed(_ longPress: UILongPressGestureRecognizer) {
-        if longPress.state == UIGestureRecognizerState.began {
+        if longPress.state == UIGestureRecognizer.State.began {
             longPressAction?(longPress)
         }
     }
@@ -4943,7 +4937,7 @@ public class BlockSwipe: UISwipeGestureRecognizer {
     }
 
     public convenience init (
-        direction: UISwipeGestureRecognizerDirection,
+        direction: UISwipeGestureRecognizer.Direction,
         fingerCount: Int = 1,
         action: ((UISwipeGestureRecognizer) -> Void)?) {
             self.init()
