@@ -263,7 +263,6 @@ class LoginViewController: BaseViewController {
                     }
                     /// 缓存token
                     UserDefaults.standard.set(NetworkManager.sharedInstance.bearerToken, forKey: "token")
-                    
                 }
             } else {
                 /// 请输入用户名或密码

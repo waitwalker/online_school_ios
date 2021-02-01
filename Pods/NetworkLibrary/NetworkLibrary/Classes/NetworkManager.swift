@@ -35,6 +35,9 @@ public class ApiConst {
     
     /// 忘记密码接口
     public static let forget_password: String = baseURL + "api-cloudaccount-service/api/user/password"
+    
+    /// 首页智领智学接口
+    public static let home_course: String = baseURL + "api-study-service/api/course/v2.3/courses"
 }
 
 
@@ -322,6 +325,37 @@ public class NetworkManager: NSObject {
             } else if jsonObjType.contains("String") {
                 /// 字符串类型
                 if let model = ForgetPasswordModel.deserialize(from: (responseObj as! String)) {
+                    print("转换后的model:\(model)")
+                    model.code = code == 200 ? 1 : code
+                    response(model)
+                } else {
+                    let baseModel = BaseModel()
+                    baseModel.code = -601;
+                    baseModel.msg = "解析错误"
+                    response(baseModel)
+                }
+            }
+            break
+        case ApiConst.home_course:
+            
+            if jsonObjType.contains("Array") {
+                /// 数组类型
+                
+            } else if jsonObjType.contains("Dictionary") {
+                
+                /// 字典类型
+                if let model = HomeCourseModel.deserialize(from: (responseObj as! Dictionary)) {
+                    print("转换后的model:\(model)")
+                    response(model)
+                } else {
+                    let baseModel = BaseModel()
+                    baseModel.code = -601;
+                    baseModel.msg = "解析错误"
+                    response(baseModel)
+                }
+            } else if jsonObjType.contains("String") {
+                /// 字符串类型
+                if let model = HomeCourseModel.deserialize(from: (responseObj as! String)) {
                     print("转换后的model:\(model)")
                     model.code = code == 200 ? 1 : code
                     response(model)
