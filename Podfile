@@ -33,6 +33,9 @@ target 'onlineSchool-ios' do
   
   # 加载圈
   pod 'NVActivityIndicatorView'
+  
+  # 路由
+  pod 'URLNavigator'
 
   # Pods for onlineSchool-ios
 

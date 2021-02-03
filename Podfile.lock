@@ -11,6 +11,7 @@ PODS:
   - NVActivityIndicatorView/Base (5.1.1)
   - SnapKit (5.0.1)
   - Toaster (2.3.0)
+  - URLNavigator (2.3.0)
   - WebviewLibrary (0.7)
 
 DEPENDENCIES:
@@ -20,6 +21,7 @@ DEPENDENCIES:
   - NVActivityIndicatorView
   - SnapKit
   - Toaster
+  - URLNavigator
   - WebviewLibrary
 
 SPEC REPOS:
@@ -30,6 +32,7 @@ SPEC REPOS:
     - NVActivityIndicatorView
     - SnapKit
     - Toaster
+    - URLNavigator
   https://github.com/waitwalker/PodSepcs.git:
     - ExtensionLibrary
     - NetworkLibrary
@@ -44,8 +47,9 @@ SPEC CHECKSUMS:
   NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   Toaster: c3473963c78e8cabbf6ea6f11ad0fdaae6f54987
+  URLNavigator: 2593c0e2d293732ec5c44503cf54dceba1a68085
   WebviewLibrary: 0c77614b637b4cfd68c46d21c90ea17e271efce2
 
-PODFILE CHECKSUM: 9b146819c2ff4e2006052cfc71498bb5b606c7eb
+PODFILE CHECKSUM: 394ce6f87b1962aba40af48945920bc8a1edeca6
 
 COCOAPODS: 1.10.0
