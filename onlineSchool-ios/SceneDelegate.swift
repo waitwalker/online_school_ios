@@ -6,17 +6,23 @@
 //
 
 import UIKit
+import URLNavigator
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
+    
+    private var navigator: Navigator?
 
     /// 和didFinish功能类似
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        let navigator = Navigator()
+        NavigationMap.initialize(navigator: navigator)
+        self.navigator = navigator
         if let windowScene = scene as? UIWindowScene {
             let wind = UIWindow(windowScene: windowScene)
-            let launchController = MTTHomeViewController()
+            let launchController = LaunchAnimationViewController(navigator: navigator)
             wind.rootViewController = launchController
             self.window = wind
             self.window?.makeKeyAndVisible()

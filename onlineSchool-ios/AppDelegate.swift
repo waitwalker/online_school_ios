@@ -14,6 +14,7 @@ import Alamofire
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     
+    
     /// 网络状态监听
     let networkStatusManager = NetworkReachabilityManager(host: "www.baidu.com")
     
@@ -42,6 +43,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
             NetworkManager.sharedInstance.bearerToken = ""
         }
+        
+        
+        
         
         return true
     }
