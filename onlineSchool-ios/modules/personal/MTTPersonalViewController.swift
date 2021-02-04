@@ -8,6 +8,7 @@
 /// 个人中心
 
 import UIKit
+import LoginModule
 
 class MTTPersonalViewController: BaseViewController {
 

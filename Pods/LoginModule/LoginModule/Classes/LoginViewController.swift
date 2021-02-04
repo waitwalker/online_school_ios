@@ -6,19 +6,23 @@
 //
 
 import UIKit
+import SnapKit
+import ExtensionLibrary
 
-class LoginViewController: BaseViewController {
+@available(iOS 13.0, *)
+public class LoginViewController: UIViewController {
     
     var accountInput: UITextField!
     var passwordInput: UITextField!
     var passwordSecurity: UIImageView!
     
 
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = .white
         
         /// 顶部图片
-        let topImageView: UIImageView = UIImageView(image: UIImage(named: "login_background_top"))
+        let topImageView: UIImageView = UIImageView(image: UIImage.bundledImage("login_background_top"))
         self.view.addSubview(topImageView)
         topImageView.snp.makeConstraints { (make) in
             make.top.equalTo(self.view)
@@ -59,7 +63,7 @@ class LoginViewController: BaseViewController {
         }
         
         /// 账号图标
-        let accountIcon: UIImageView = UIImageView(image: UIImage(named: "account_placeholder_icon"))
+        let accountIcon: UIImageView = UIImageView(image: UIImage.bundledImage("account_placeholder_icon"))
         accountContainer.addSubview(accountIcon)
         accountIcon.snp.makeConstraints { (make) in
             make.width.height.equalTo(24)
@@ -81,7 +85,7 @@ class LoginViewController: BaseViewController {
         }
         
         /// 账户清空按钮
-        let accountDelete: UIImageView = UIImageView(image: UIImage(named: "login_account_clear_icon"))
+        let accountDelete: UIImageView = UIImageView(image: UIImage.bundledImage("login_account_clear_icon"))
         accountDelete.isUserInteractionEnabled = true
         let tap = UITapGestureRecognizer(target: self, action: #selector(accountDeleteTapAction))
         accountDelete.addGestureRecognizer(tap)
@@ -110,7 +114,7 @@ class LoginViewController: BaseViewController {
         }
         
         /// 密码图标
-        let passwordIcon: UIImageView = UIImageView(image: UIImage(named: "password_placeholder_icon"))
+        let passwordIcon: UIImageView = UIImageView(image: UIImage.bundledImage("password_placeholder_icon"))
         passwordContainer.addSubview(passwordIcon)
         passwordIcon.snp.makeConstraints { (make) in
             make.width.height.equalTo(24)
@@ -133,7 +137,7 @@ class LoginViewController: BaseViewController {
         }
         
         /// 密码明文密文按钮
-        passwordSecurity = UIImageView(image: UIImage(named: "visible_placeholder_icon"))
+        passwordSecurity = UIImageView(image: UIImage.bundledImage("visible_placeholder_icon"))
         passwordSecurity.isUserInteractionEnabled = true
         let passwordTap = UITapGestureRecognizer(target: self, action: #selector(passwordDeleteTapAction))
         passwordSecurity.addGestureRecognizer(passwordTap)
@@ -194,7 +198,7 @@ class LoginViewController: BaseViewController {
         }
         
         /// 底部图片
-        let bottomImageView: UIImageView = UIImageView(image: UIImage(named: "login_background_down"))
+        let bottomImageView: UIImageView = UIImageView(image: UIImage.bundledImage("login_background_down"))
         self.view.addSubview(bottomImageView)
         bottomImageView.snp.makeConstraints { (make) in
             make.left.bottom.width.equalTo(self.view)
@@ -213,7 +217,7 @@ class LoginViewController: BaseViewController {
     @objc func passwordDeleteTapAction() -> Void {
         print("点击了password")
         passwordInput.isSecureTextEntry = !passwordInput.isSecureTextEntry;
-        passwordSecurity.image = UIImage(named: passwordInput.isSecureTextEntry ? "visible_placeholder_icon" : "invisible_placeholder_icon")
+        passwordSecurity.image = UIImage.bundledImage(passwordInput.isSecureTextEntry ? "visible_placeholder_icon" : "invisible_placeholder_icon")
     }
     
     /// 忘记密码按钮点击事件

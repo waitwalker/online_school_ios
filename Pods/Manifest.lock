@@ -2,7 +2,10 @@ PODS:
   - Alamofire (5.4.1)
   - ExtensionLibrary (2.0)
   - HandyJSON (5.0.2)
-  - lottie-ios (3.1.9)
+  - LoginModule (0.5):
+    - ExtensionLibrary
+    - SnapKit
+  - lottie-ios (3.2.0)
   - NetworkLibrary (1.7.6):
     - Alamofire (~> 5.4.1)
     - HandyJSON (~> 5.0.2)
@@ -16,6 +19,7 @@ PODS:
 
 DEPENDENCIES:
   - ExtensionLibrary
+  - LoginModule
   - lottie-ios
   - NetworkLibrary (~> 1.7.1)
   - NVActivityIndicatorView
@@ -35,6 +39,7 @@ SPEC REPOS:
     - URLNavigator
   https://github.com/waitwalker/PodSepcs.git:
     - ExtensionLibrary
+    - LoginModule
     - NetworkLibrary
     - WebviewLibrary
 
@@ -42,7 +47,8 @@ SPEC CHECKSUMS:
   Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
   ExtensionLibrary: 3db3d4cad68749fa92463a8040fb013a719a8d79
   HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
-  lottie-ios: 3a3758ef5a008e762faec9c9d50a39842f26d124
+  LoginModule: 19cc2b5f08759f47c4663a684c75fbf0eecbb1d0
+  lottie-ios: b6b911246246a90a1d25e7388afe6d9ef003d293
   NetworkLibrary: 85074bf42f93851a8d066b83a78547b4279b72c3
   NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
@@ -50,6 +56,6 @@ SPEC CHECKSUMS:
   URLNavigator: 2593c0e2d293732ec5c44503cf54dceba1a68085
   WebviewLibrary: 0c77614b637b4cfd68c46d21c90ea17e271efce2
 
-PODFILE CHECKSUM: 394ce6f87b1962aba40af48945920bc8a1edeca6
+PODFILE CHECKSUM: 4d094f1b0d397783b06cc65e3d85d85413e101e8
 
 COCOAPODS: 1.10.0

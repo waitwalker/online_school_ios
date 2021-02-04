@@ -1,38 +1,33 @@
 //
-//  MTTRegisterViewController.swift
+//  MTTForgetPasswordViewController.swift
 //  onlineSchool-ios
 //
 //  Created by waitwalker on 2021/1/25.
 //
 
 import UIKit
+import SnapKit
 
-class MTTRegisterViewController: BaseViewController {
+@available(iOS 13.0, *)
+public class MTTForgetPasswordViewController: UIViewController {
 
     var accountInput: UITextField!
     var codeInput: UITextField!
     var getCodeButton: UIButton!
     var passwordInput: UITextField!
-    var areaInputLabel: UILabel!
     var passwordSecurity: UIImageView!
     var count : Int?
     var enabled : Bool?
     var timer : Timer?
     
-    
-    override func viewDidLoad() {
+
+    public override func viewDidLoad() {
         super.viewDidLoad()
-        
-        /// 初始化子控件
-        setupSubviews()
-    }
-    
-    /// 初始化子控件
-    private func setupSubviews() -> Void {
+        self.view.backgroundColor = .white
         
         /// 返回按钮
         let backButton: UIButton = UIButton()
-        backButton.setImage(UIImage(named: "forget_password_back_icon"), for: .normal)
+        backButton.setImage(UIImage.bundledImage("forget_password_back_icon"), for: .normal)
         backButton.addTarget(self, action: #selector(bactButtonAction(_:)), for: .touchUpInside)
         self.view.addSubview(backButton)
         backButton.snp.makeConstraints { (make) in
@@ -43,7 +38,7 @@ class MTTRegisterViewController: BaseViewController {
         }
         
         /// 顶部图片
-        let topImageView: UIImageView = UIImageView(image: UIImage(named: "login_background_top"))
+        let topImageView: UIImageView = UIImageView(image: UIImage.bundledImage("login_background_top"))
         self.view.addSubview(topImageView)
         topImageView.snp.makeConstraints { (make) in
             make.top.equalTo(self.view)
@@ -52,14 +47,14 @@ class MTTRegisterViewController: BaseViewController {
             make.height.equalTo(160)
         }
         
-        /// 注册
-        let registerLabel: UILabel = UILabel()
-        registerLabel.text = "注册"
-        registerLabel.textColor = .black
-        registerLabel.textAlignment = .left
-        registerLabel.font = .systemFont(ofSize: 22, weight: .bold)
-        self.view.addSubview(registerLabel)
-        registerLabel.snp.makeConstraints { (make) in
+        /// 忘记密码
+        let forgetPasswordLabel: UILabel = UILabel()
+        forgetPasswordLabel.text = "忘记密码"
+        forgetPasswordLabel.textColor = .black
+        forgetPasswordLabel.textAlignment = .left
+        forgetPasswordLabel.font = .systemFont(ofSize: 22, weight: .bold)
+        self.view.addSubview(forgetPasswordLabel)
+        forgetPasswordLabel.snp.makeConstraints { (make) in
             make.left.equalTo(40)
             make.height.equalTo(30)
             make.width.equalTo(200)
@@ -79,12 +74,12 @@ class MTTRegisterViewController: BaseViewController {
         accountContainer.snp.makeConstraints { (make) in
             make.left.equalTo(20)
             make.right.equalTo(-20)
-            make.top.equalTo(registerLabel.snp_bottomMargin).offset(60)
+            make.top.equalTo(forgetPasswordLabel.snp_bottomMargin).offset(60)
             make.height.equalTo(44)
         }
         
         /// 账号图标
-        let accountIcon: UIImageView = UIImageView(image: UIImage(named: "account_placeholder_icon"))
+        let accountIcon: UIImageView = UIImageView(image: UIImage.bundledImage("account_placeholder_icon"))
         accountContainer.addSubview(accountIcon)
         accountIcon.snp.makeConstraints { (make) in
             make.width.height.equalTo(24)
@@ -95,7 +90,7 @@ class MTTRegisterViewController: BaseViewController {
         /// 账号输入框
         accountInput = UITextField()
         accountInput.textColor = .black
-        accountInput.placeholder = "输入手机号"
+        accountInput.placeholder = "手机号"
         accountInput.backgroundColor = .white
         accountContainer.addSubview(accountInput)
         accountInput.snp.makeConstraints { (make) in
@@ -105,7 +100,7 @@ class MTTRegisterViewController: BaseViewController {
         }
         
         /// 账户清空按钮
-        let accountDelete: UIImageView = UIImageView(image: UIImage(named: "login_account_clear_icon"))
+        let accountDelete: UIImageView = UIImageView(image: UIImage.bundledImage("login_account_clear_icon"))
         accountDelete.isUserInteractionEnabled = true
         let tap = UITapGestureRecognizer(target: self, action: #selector(accountDeleteTapAction))
         accountDelete.addGestureRecognizer(tap)
@@ -134,7 +129,7 @@ class MTTRegisterViewController: BaseViewController {
         }
         
         /// 账号图标
-        let codeIcon: UIImageView = UIImageView(image: UIImage(named: "code_placeholder_iconx"))
+        let codeIcon: UIImageView = UIImageView(image: UIImage.bundledImage("code_placeholder_iconx"))
         codeContainer.addSubview(codeIcon)
         codeIcon.snp.makeConstraints { (make) in
             make.width.height.equalTo(24)
@@ -145,7 +140,7 @@ class MTTRegisterViewController: BaseViewController {
         /// 验证码输入框
         codeInput = UITextField()
         codeInput.textColor = .black
-        codeInput.placeholder = "输入验证码"
+        codeInput.placeholder = "验证码"
         codeInput.backgroundColor = .white
         codeContainer.addSubview(codeInput)
         codeInput.snp.makeConstraints { (make) in
@@ -153,6 +148,7 @@ class MTTRegisterViewController: BaseViewController {
             make.top.height.equalTo(codeContainer)
             make.right.equalTo(-100)
         }
+        
         
         /// 获取验证码
         getCodeButton = UIButton()
@@ -166,6 +162,7 @@ class MTTRegisterViewController: BaseViewController {
             make.left.equalTo(codeInput.snp.rightMargin).offset(5)
             make.height.right.top.equalTo(codeContainer)
         }
+        
         
         /// 密码容器
         let passwordContainer: UIView = UIView()
@@ -185,7 +182,7 @@ class MTTRegisterViewController: BaseViewController {
         }
         
         /// 密码图标
-        let passwordIcon: UIImageView = UIImageView(image: UIImage(named: "password_placeholder_icon"))
+        let passwordIcon: UIImageView = UIImageView(image: UIImage.bundledImage("password_placeholder_icon"))
         passwordContainer.addSubview(passwordIcon)
         passwordIcon.snp.makeConstraints { (make) in
             make.width.height.equalTo(24)
@@ -196,7 +193,7 @@ class MTTRegisterViewController: BaseViewController {
         /// 密码输入框
         passwordInput = UITextField()
         passwordInput.textColor = .black
-        passwordInput.placeholder = "输入密码"
+        passwordInput.placeholder = "密码"
         passwordInput.isSecureTextEntry = true
         passwordInput.backgroundColor = .white
         passwordContainer.addSubview(passwordInput)
@@ -207,7 +204,7 @@ class MTTRegisterViewController: BaseViewController {
         }
         
         /// 密码明文密文按钮
-        passwordSecurity = UIImageView(image: UIImage(named: "visible_placeholder_icon"))
+        passwordSecurity = UIImageView(image: UIImage.bundledImage("visible_placeholder_icon"))
         passwordSecurity.isUserInteractionEnabled = true
         let passwordTap = UITapGestureRecognizer(target: self, action: #selector(passwordDeleteTapAction))
         passwordSecurity.addGestureRecognizer(passwordTap)
@@ -218,120 +215,27 @@ class MTTRegisterViewController: BaseViewController {
             make.centerY.equalTo(passwordContainer)
         }
         
-        /// 选择地区容器
-        let areaContainer: UIView = UIView()
-        areaContainer.backgroundColor = .white
-        areaContainer.layer.cornerRadius = 20
-        areaContainer.layer.shadowOpacity = 0.7
-        areaContainer.layer.shadowRadius = 10
-        areaContainer.layer.shadowColor = UIColor.gray.cgColor
-        areaContainer.layer.shadowOffset = CGSize(width: 0, height: 2)
-        self.view.addSubview(areaContainer)
         
-        areaContainer.snp.makeConstraints { (make) in
-            make.left.equalTo(20)
-            make.right.equalTo(-20)
-            make.top.equalTo(passwordContainer.snp_bottomMargin).offset(40)
-            make.height.equalTo(44)
-        }
+        /// 登录按钮
+        let loginButton: UIButton = UIButton()
+        loginButton.setTitle("登录", for: .normal)
+        loginButton.titleLabel?.font = .systemFont(ofSize: 22)
+        loginButton.setTitleColor(.white, for: .normal)
+        loginButton.setTitleColor(UIColor(hex: "#772299"), for: .highlighted)
+        loginButton.addTarget(self, action: #selector(registerButtonAction(_:)), for: .touchUpInside)
+        loginButton.backgroundColor = UIColor(hex: "#5B8CF2")
+        loginButton.layer.cornerRadius = 22
         
-        /// 选择地区图标
-        let areaIcon: UIImageView = UIImageView(image: UIImage(named: "location_placeholder_icon"))
-        areaContainer.addSubview(areaIcon)
-        areaIcon.snp.makeConstraints { (make) in
-            make.width.height.equalTo(24)
-            make.left.equalTo(5)
-            make.centerY.equalTo(areaContainer)
-        }
-        
-        /// 选择地区输入框
-        areaInputLabel = UILabel()
-        areaInputLabel.textColor = .black
-        areaInputLabel.text = "请选择所在地区"
-        areaInputLabel.backgroundColor = .white
-        areaInputLabel.isUserInteractionEnabled = true
-        let areaTap = UITapGestureRecognizer(target: self, action: #selector(areaTapAction))
-        areaInputLabel.addGestureRecognizer(areaTap)
-        
-        areaContainer.addSubview(areaInputLabel)
-        areaInputLabel.snp.makeConstraints { (make) in
-            make.left.equalTo(areaIcon.snp_rightMargin).offset(15)
-            make.top.height.equalTo(areaContainer)
-            make.right.equalTo(-40)
-        }
-        
-        /// 选择地区下拉按钮
-        let areaDowndrop: UIImageView = UIImageView(image: UIImage(named: "register_dropdown"))
-        areaDowndrop.isUserInteractionEnabled = true
-        let dropTap = UITapGestureRecognizer(target: self, action: #selector(areaTapAction))
-        areaDowndrop.addGestureRecognizer(dropTap)
-        areaContainer.addSubview(areaDowndrop)
-        areaDowndrop.snp.makeConstraints { (make) in
-            make.width.height.equalTo(24)
-            make.left.equalTo(areaInputLabel.snp_rightMargin).offset(10)
-            make.centerY.equalTo(areaContainer)
-        }
-        
-        /// 区域选择教材提示
-        let areaHintLabel: UILabel = UILabel()
-        areaHintLabel.text = "因区域和教材差异，为保证您的学习效果，请务必准确填写。"
-        areaHintLabel.textColor = .gray
-        areaHintLabel.font = .systemFont(ofSize: 11)
-        self.view.addSubview(areaHintLabel)
-        
-        areaHintLabel.snp.makeConstraints { (make) in
-            make.centerX.equalTo(areaContainer)
-            make.height.equalTo(20)
-            make.top.equalTo(areaContainer.snp_bottomMargin).offset(15)
-        }
-        
-        
-        /// 注册按钮
-        let registerButton: UIButton = UIButton()
-        registerButton.setTitle("注册", for: .normal)
-        registerButton.titleLabel?.font = .systemFont(ofSize: 22)
-        registerButton.setTitleColor(.white, for: .normal)
-        registerButton.setTitleColor(UIColor(hex: "#772299"), for: .highlighted)
-        registerButton.addTarget(self, action: #selector(registerButtonAction(_:)), for: .touchUpInside)
-        registerButton.backgroundColor = UIColor(hex: "#5B8CF2")
-        registerButton.layer.cornerRadius = 22
-        
-        self.view.addSubview(registerButton)
-        registerButton.snp.makeConstraints { (make) in
-            make.top.equalTo(areaHintLabel.snp_bottomMargin).offset(60)
+        self.view.addSubview(loginButton)
+        loginButton.snp.makeConstraints { (make) in
+            make.top.equalTo(passwordContainer.snp_bottomMargin).offset(80)
             make.height.equalTo(44)
             make.width.equalTo(240)
             make.centerX.equalTo(self.view)
         }
         
-        /// 用户同意按钮
-        let agreeIconButton: UIButton = UIButton()
-        agreeIconButton.setImage(UIImage(named: "agree_normal_icon"), for: .normal)
-        agreeIconButton.addTarget(self, action: #selector(agreeIconButtonAction(_:)), for: .touchUpInside)
-        self.view.addSubview(agreeIconButton)
-        agreeIconButton.snp.makeConstraints { (make) in
-            make.left.equalTo(registerButton).offset(10)
-            make.width.height.equalTo(18)
-            make.top.equalTo(registerButton.snp_bottomMargin).offset(20)
-        }
-        
-        
-        /// 用户协议按钮
-        let agreementButton: UIButton = UIButton()
-        agreementButton.setTitle("阅读并同意用户服务协议", for: .normal)
-        agreementButton.titleLabel?.font = .systemFont(ofSize: 14)
-        agreementButton.setTitleColor(UIColor(hex: "#666666"), for: .normal)
-        agreementButton.addTarget(self, action: #selector(agreementButtonAction), for: .touchUpInside)
-        self.view.addSubview(agreementButton)
-        agreementButton.snp.makeConstraints { (make) in
-            make.left.equalTo(agreeIconButton.snp_rightMargin).offset(15)
-            make.height.equalTo(20)
-            make.top.equalTo(registerButton.snp_bottomMargin).offset(20)
-        }
-        
-        
         /// 底部图片
-        let bottomImageView: UIImageView = UIImageView(image: UIImage(named: "login_background_down"))
+        let bottomImageView: UIImageView = UIImageView(image: UIImage.bundledImage("login_background_down"))
         self.view.addSubview(bottomImageView)
         bottomImageView.snp.makeConstraints { (make) in
             make.left.bottom.width.equalTo(self.view)
@@ -339,7 +243,6 @@ class MTTRegisterViewController: BaseViewController {
         }
     }
     
-    ///////// ###### 点击事件 ###### //////
     
     /// 返回按钮点击事件
     @objc func bactButtonAction(_ button: UIButton) -> Void {
@@ -347,6 +250,7 @@ class MTTRegisterViewController: BaseViewController {
             
         }
     }
+    
     
     /// 清空按钮点击回调
     @objc func accountDeleteTapAction() -> Void {
@@ -390,37 +294,18 @@ class MTTRegisterViewController: BaseViewController {
     @objc func passwordDeleteTapAction() -> Void {
         print("点击了password")
         passwordInput.isSecureTextEntry = !passwordInput.isSecureTextEntry;
-        passwordSecurity.image = UIImage(named: passwordInput.isSecureTextEntry ? "visible_placeholder_icon" : "invisible_placeholder_icon")
+        passwordSecurity.image = UIImage.bundledImage(passwordInput.isSecureTextEntry ? "visible_placeholder_icon" : "invisible_placeholder_icon")
     }
     
     
-    /// 选择地区点击回调
-    @objc func areaTapAction() -> Void {
-        print("选择地区被点击了")
+    /// 登录按钮点击事件
+    @objc func loginButtonAction(_ button: UIButton) -> Void {
+        print("登录被点击")
     }
-    
-    /// 同意图标按钮点击事件
-    @objc func agreeIconButtonAction(_ button: UIButton) -> Void {
-        print("同意图标按钮被点击了")
-        button.isSelected = !button.isSelected
-        button.setImage(UIImage(named: button.isSelected ? "agree_selected_icon" :"agree_normal_icon" ), for: .normal)
-    }
-    
-    /// 同意协议按钮点击事件
-    @objc func agreementButtonAction() -> Void {
-        print("同意协议按钮被点击了")
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "UserAgreementAction"), object: nil)
-    }
+
     
     /// 注册按钮点击事件
     @objc func registerButtonAction(_ button: UIButton) -> Void {
         print("注册被点击")
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "RegisterAction"), object: [
-            "username": accountInput.text,
-            "password": passwordInput.text,
-            "code": codeInput.text,
-            "area": areaInputLabel.text,
-        ])
     }
 }
-    

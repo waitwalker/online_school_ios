@@ -8,6 +8,7 @@
 import Foundation
 import URLNavigator
 import WebviewLibrary
+import LoginModule
 
 enum NavigationMap {
     static func initialize(navigator: Navigator) -> Void {

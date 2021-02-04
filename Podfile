@@ -36,6 +36,10 @@ target 'onlineSchool-ios' do
   
   # 路由
   pod 'URLNavigator'
+  
+  
+  # 登录
+  pod 'LoginModule'
 
   # Pods for onlineSchool-ios
 
