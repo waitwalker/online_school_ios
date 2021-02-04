@@ -7,6 +7,7 @@
 
 import Foundation
 import URLNavigator
+import WebviewLibrary
 
 enum NavigationMap {
     static func initialize(navigator: Navigator) -> Void {
@@ -14,6 +15,13 @@ enum NavigationMap {
             let loginVC = LoginViewController()
             loginVC.modalPresentationStyle = .fullScreen
             return loginVC
+        }
+        
+        navigator.register("navigator://userAgreementAction") { ulr, values, context in
+            let browseVC: BrowseWebviewController = BrowseWebviewController("https://www.etiantian.com/about/mobile/servandpriv.html", title: "用户协议")
+            let navVC: MTTNavigationController = MTTNavigationController(rootViewController: browseVC)
+            navVC.modalPresentationStyle = .fullScreen
+            return navVC
         }
     }
 }

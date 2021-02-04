@@ -12,6 +12,7 @@
 		2881B885C345D4E099E73DB8 /* Pods_onlineSchool_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C87A31B03DB80A6736C6082 /* Pods_onlineSchool_ios.framework */; };
 		6A02CF1225CA2B78000AA6E6 /* MTTHomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A02CF1125CA2B78000AA6E6 /* MTTHomeCollectionViewCell.swift */; };
 		6A02CF2F25CB90E5000AA6E6 /* NavigationMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A02CF2E25CB90E5000AA6E6 /* NavigationMap.swift */; };
+		6A02CF5525CBCFF0000AA6E6 /* ModuleActionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A02CF5425CBCFF0000AA6E6 /* ModuleActionManager.swift */; };
 		6A6F64BB25BE94930098DD04 /* MTTTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6F64BA25BE94930098DD04 /* MTTTabBarController.swift */; };
 		6A6F64C025BE94B20098DD04 /* MTTHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6F64BF25BE94B20098DD04 /* MTTHomeViewController.swift */; };
 		6A6F64C625BE94CE0098DD04 /* MTTPersonalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6F64C525BE94CE0098DD04 /* MTTPersonalViewController.swift */; };
@@ -58,6 +59,7 @@
 		3C87A31B03DB80A6736C6082 /* Pods_onlineSchool_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_onlineSchool_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A02CF1125CA2B78000AA6E6 /* MTTHomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTTHomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		6A02CF2E25CB90E5000AA6E6 /* NavigationMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationMap.swift; sourceTree = "<group>"; };
+		6A02CF5425CBCFF0000AA6E6 /* ModuleActionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleActionManager.swift; sourceTree = "<group>"; };
 		6A6F64BA25BE94930098DD04 /* MTTTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTTTabBarController.swift; sourceTree = "<group>"; };
 		6A6F64BF25BE94B20098DD04 /* MTTHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTTHomeViewController.swift; sourceTree = "<group>"; };
 		6A6F64C525BE94CE0098DD04 /* MTTPersonalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTTPersonalViewController.swift; sourceTree = "<group>"; };
@@ -145,6 +147,14 @@
 			path = navigator;
 			sourceTree = "<group>";
 		};
+		6A02CF4B25CBCD8C000AA6E6 /* moduleActions */ = {
+			isa = PBXGroup;
+			children = (
+				6A02CF5425CBCFF0000AA6E6 /* ModuleActionManager.swift */,
+			);
+			path = moduleActions;
+			sourceTree = "<group>";
+		};
 		6A6F64B825BE93A40098DD04 /* home */ = {
 			isa = PBXGroup;
 			children = (
@@ -205,6 +215,7 @@
 		6A9BD1D825B67E1000205DFD /* onlineSchool-ios */ = {
 			isa = PBXGroup;
 			children = (
+				6A02CF4B25CBCD8C000AA6E6 /* moduleActions */,
 				6A02CF2D25CB8EE9000AA6E6 /* navigator */,
 				6A6F64FC25C0FAFA0098DD04 /* common */,
 				6A9BD21225B67F0D00205DFD /* modules */,
@@ -538,6 +549,7 @@
 				6A9BD22825B685CF00205DFD /* BaseViewController.swift in Sources */,
 				6A9BD21525B67F7E00205DFD /* LaunchAnimationViewController.swift in Sources */,
 				6A9BD1DE25B67E1000205DFD /* ViewController.swift in Sources */,
+				6A02CF5525CBCFF0000AA6E6 /* ModuleActionManager.swift in Sources */,
 				6A9BD1DA25B67E1000205DFD /* AppDelegate.swift in Sources */,
 				6A6F64FE25C0FBC10098DD04 /* InteractiveWebviewController.swift in Sources */,
 				6A9BD1DC25B67E1000205DFD /* SceneDelegate.swift in Sources */,

@@ -298,12 +298,6 @@ class MTTForgetPasswordViewController: BaseViewController {
     /// 登录按钮点击事件
     @objc func loginButtonAction(_ button: UIButton) -> Void {
         print("登录被点击")
-        if let account = accountInput.text, let password = passwordInput.text {
-            
-            
-        } else {
-            /// 请输入用户名或密码
-        }
     }
 
     

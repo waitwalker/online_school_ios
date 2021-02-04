@@ -6,9 +6,6 @@
 //
 
 import UIKit
-import WebviewLibrary
-import NetworkLibrary
-import Toaster
 
 class MTTRegisterViewController: BaseViewController {
 
@@ -412,56 +409,18 @@ class MTTRegisterViewController: BaseViewController {
     /// 同意协议按钮点击事件
     @objc func agreementButtonAction() -> Void {
         print("同意协议按钮被点击了")
-        let browseVC: BrowseWebviewController = BrowseWebviewController("https://www.etiantian.com/about/mobile/servandpriv.html", title: "用户协议")
-        let navVC: MTTNavigationController = MTTNavigationController(rootViewController: browseVC)
-        navVC.modalPresentationStyle = .fullScreen
-        present(navVC, animated: true) {
-            
-        }
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "UserAgreementAction"), object: nil)
     }
     
     /// 注册按钮点击事件
     @objc func registerButtonAction(_ button: UIButton) -> Void {
         print("注册被点击")
-        if let account = accountInput.text, let password = passwordInput.text, let code = codeInput.text, let area = areaInputLabel.text {
-            if account.count > 0 && password.count > 0 {
-                MTTLoadingManager.sharedInstance.startAnimating()
-                NetworkManager.sharedInstance.postRequest(ApiConst.register,
-                                                          parameters:
-                                                            ["mobile" : account,
-                                                             "password" : password,
-                                                             "phoneCode" : code,
-                                                             "province" : area,
-                                                             "city" : area,
-                                                             "regionId" : area]
-                ) { (model) in
-                    if (model.code > 0) {
-                        let registerModel = model as! RegisterModel
-                        if registerModel.code == 1 {
-                            Toast(text: registerModel.msg).show()
-                        } else {
-                            Toast(text: registerModel.msg).show()
-                        }
-                        MTTLoadingManager.sharedInstance.stopAnimating()
-                        
-                    } else {
-                        print("错误码:\(model.code); 错误信息:\(model.msg)")
-                        NetworkManager.sharedInstance.bearerToken = ""
-                        /// 登录失败
-                        MTTLoadingManager.sharedInstance.stopAnimating()
-                        Toast(text: "注册失败请重试").show()
-                    }
-                    
-                }
-            } else {
-                /// 请输入用户名或密码
-                Toast(text: "请输入完整信息").show()
-            }
-            
-        } else {
-            /// 请输入用户名或密码
-            Toast(text: "请输入完整信息").show()
-        }
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "RegisterAction"), object: [
+            "username": accountInput.text,
+            "password": passwordInput.text,
+            "code": codeInput.text,
+            "area": areaInputLabel.text,
+        ])
     }
 }
     

@@ -6,8 +6,6 @@
 //
 
 import UIKit
-import NetworkLibrary
-import Toaster
 
 class LoginViewController: BaseViewController {
     
@@ -231,48 +229,11 @@ class LoginViewController: BaseViewController {
     /// 登录按钮点击事件
     @objc func loginButtonAction(_ button: UIButton) -> Void {
         print("登录被点击")
-        if let account = accountInput.text, let password = passwordInput.text {
-            if account.count > 0 && password.count > 0 {
-                MTTLoadingManager.sharedInstance.startAnimating()
-                NetworkManager.sharedInstance.postRequest(ApiConst.login, parameters: ["username" : account, "password" : password]) { (model) in
-                    if (model.code > 0) {
-                        let loginModel = model as! LoginModel
-                        if loginModel.code == 1 {
-                            NetworkManager.sharedInstance.bearerToken = loginModel.access_token
-                            /// 登录成功
-                            /// 获取窗口&切换rootViewController
-                            if let window = UIApplication.shared.windows.first {
-                                window.rootViewController = MTTTabBarController()
-                                window.makeKeyAndVisible()
-                                print("window:\(window)")
-                            } else {
-                                print("window is none")
-                            }
-                            
-                        } else {
-                            Toast(text: loginModel.msg).show()
-                        }
-                        MTTLoadingManager.sharedInstance.stopAnimating()
-                        
-                    } else {
-                        print("错误码:\(model.code); 错误信息:\(model.msg)")
-                        NetworkManager.sharedInstance.bearerToken = ""
-                        /// 登录失败
-                        MTTLoadingManager.sharedInstance.stopAnimating()
-                        Toast(text: "登录失败请重试").show()
-                    }
-                    /// 缓存token
-                    UserDefaults.standard.set(NetworkManager.sharedInstance.bearerToken, forKey: "token")
-                }
-            } else {
-                /// 请输入用户名或密码
-                Toast(text: "请输入用户名或密码").show()
-            }
-            
-        } else {
-            /// 请输入用户名或密码
-            Toast(text: "请输入用户名或密码").show()
-        }
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "LoginAction"), object: [
+            "username": accountInput.text,
+            "password": passwordInput.text
+        ])
+        
     }
 
     
