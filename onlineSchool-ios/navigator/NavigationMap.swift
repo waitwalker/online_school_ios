@@ -11,6 +11,8 @@ import WebviewLibrary
 import LoginModule
 
 enum NavigationMap {
+    
+    /// 注册路由控制器
     static func initialize(navigator: Navigator) -> Void {
         navigator.register("navigator://loginModule") { ulr, values, context in
             let loginVC = LoginViewController()
