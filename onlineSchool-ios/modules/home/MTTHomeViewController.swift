@@ -78,11 +78,14 @@ extension MTTHomeViewController: UICollectionViewDelegate {
 
 extension MTTHomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (self.view.w - 30 * 2 - 20) / 2, height: (self.view.w - 30 * 2 - 20) / 2)
+        
+        let width: CGFloat = (self.view.w - 30 * 2 - 20) / 2
+        let height: CGFloat = width * 2 / 3
+        return CGSize(width: width, height: height)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 30, bottom: 0, right: 30)
+        return UIEdgeInsets(top: 20, left: 30, bottom: 0, right: 30)
     }
 }
 

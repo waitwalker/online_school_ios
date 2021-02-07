@@ -36,8 +36,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         ModuleActionManager.sharedInstance.registerAction(navigator: navigator)
         NotificationCenter.default.addObserver(self, selector: #selector(loginAction(notification:)), name: NSNotification.Name(rawValue: "LoginAction"), object: nil)
 
-        
-        
     }
     
     /// 登录点击事件
