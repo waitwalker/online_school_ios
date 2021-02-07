@@ -59,8 +59,8 @@ class MTTHomeCollectionViewCell: UICollectionViewCell {
         self.contentView.addSubview(subjectIconImageView)
         
         subjectIconImageView.snp.makeConstraints { (make) in
-            make.right.equalTo(-20)
-            make.top.equalTo(20)
+            make.right.equalTo(-15)
+            make.top.equalTo(25)
             make.width.height.equalTo(44)
         }
         
