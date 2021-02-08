@@ -27,7 +27,6 @@ class MTTHomeViewController: BaseViewController {
         let statusBarHeight: CGFloat = (UIApplication.shared.windows.first?.windowScene?.statusBarManager!.statusBarFrame.size.height)!
         
         let sectionContainer: UIView = UIView()
-        sectionContainer.backgroundColor = .red
         self.view.addSubview(sectionContainer)
         sectionContainer.frame = CGRect(x: 0, y: navigationBarHeight + statusBarHeight + 20, width: self.view.w, height: 20)
         
@@ -37,11 +36,21 @@ class MTTHomeViewController: BaseViewController {
         sectionIconView.backgroundColor = UIColor(hex: "#FF9918")
         sectionIconView.layer.cornerRadius = 2.5
         sectionContainer.clipsToBounds = true
-        sectionIconView.frame = CGRect(x: 20, y: 2, width: 5, height: 16)
+        sectionIconView.layer.shadowOpacity = 0.7
+        sectionIconView.layer.shadowRadius = 2
+        sectionIconView.layer.shadowColor = UIColor(hex: "#FF9918").cgColor
+        sectionIconView.layer.shadowOffset = CGSize(width: 0, height: 2)
+        sectionIconView.frame = CGRect(x: 20, y: 3, width: 5, height: 14)
         
         
         let sectionTitleLabel: UILabel = UILabel()
+        sectionTitleLabel.frame = CGRect(x: 30, y: 0, width: self.view.w - 30, height: 20)
         sectionTitleLabel.text = "智领课"
+        sectionTitleLabel.textAlignment = .left
+        sectionTitleLabel.font = .systemFont(ofSize: 13, weight: .regular)
+        sectionContainer.addSubview(sectionTitleLabel)
+        
+        
         
         
         let width: CGFloat = (self.view.w - 20 * 2 - 20) / 2
