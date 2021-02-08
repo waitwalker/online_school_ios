@@ -26,30 +26,8 @@ class MTTHomeViewController: BaseViewController {
         let navigationBarHeight = (self.navigationController?.navigationBar.frame.size.height)!
         let statusBarHeight: CGFloat = (UIApplication.shared.windows.first?.windowScene?.statusBarManager!.statusBarFrame.size.height)!
         
-        let sectionContainer: UIView = UIView()
+        let sectionContainer: MTTSectionTitleView = MTTSectionTitleView(CGRect(x: 0, y: navigationBarHeight + statusBarHeight + 20, width: self.view.w, height: 20), sectionTitle: "智领课11111")
         self.view.addSubview(sectionContainer)
-        sectionContainer.frame = CGRect(x: 0, y: navigationBarHeight + statusBarHeight + 20, width: self.view.w, height: 20)
-        
-        
-        let sectionIconView: UIView = UIView()
-        sectionContainer.addSubview(sectionIconView)
-        sectionIconView.backgroundColor = UIColor(hex: "#FF9918")
-        sectionIconView.layer.cornerRadius = 2.5
-        sectionContainer.clipsToBounds = true
-        sectionIconView.layer.shadowOpacity = 0.7
-        sectionIconView.layer.shadowRadius = 2
-        sectionIconView.layer.shadowColor = UIColor(hex: "#FF9918").cgColor
-        sectionIconView.layer.shadowOffset = CGSize(width: 0, height: 2)
-        sectionIconView.frame = CGRect(x: 20, y: 3, width: 5, height: 14)
-        
-        
-        let sectionTitleLabel: UILabel = UILabel()
-        sectionTitleLabel.frame = CGRect(x: 30, y: 0, width: self.view.w - 30, height: 20)
-        sectionTitleLabel.text = "智领课"
-        sectionTitleLabel.textAlignment = .left
-        sectionTitleLabel.font = .systemFont(ofSize: 13, weight: .regular)
-        sectionContainer.addSubview(sectionTitleLabel)
-        
         
         
         
@@ -131,7 +109,7 @@ extension MTTHomeViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 20, left: 20, bottom: 0, right: 20)
+        return UIEdgeInsets(top: 10, left: 20, bottom: 0, right: 20)
     }
 }
 

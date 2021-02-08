@@ -30,6 +30,7 @@
 		6A9BD22825B685CF00205DFD /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A9BD22725B685CF00205DFD /* BaseViewController.swift */; };
 		6A9BD23B25B6891A00205DFD /* launch.json in Resources */ = {isa = PBXBuildFile; fileRef = 6A9BD23A25B6891A00205DFD /* launch.json */; };
 		6AB62FF925C3E0EC009A9711 /* MTTLoadingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB62FF825C3E0EC009A9711 /* MTTLoadingManager.swift */; };
+		6ABF531425D0D62A00E1EFDA /* MTTSectionTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ABF531325D0D62A00E1EFDA /* MTTSectionTitleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,7 @@
 		6A9BD22725B685CF00205DFD /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		6A9BD23A25B6891A00205DFD /* launch.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = launch.json; sourceTree = "<group>"; };
 		6AB62FF825C3E0EC009A9711 /* MTTLoadingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTTLoadingManager.swift; sourceTree = "<group>"; };
+		6ABF531325D0D62A00E1EFDA /* MTTSectionTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTTSectionTitleView.swift; sourceTree = "<group>"; };
 		6D830D23BE4EDCCA9B4DABD9 /* Pods_onlineSchool_iosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_onlineSchool_iosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		70FB99CA75CCC0D0A266EEF9 /* Pods_onlineSchool_ios_onlineSchool_iosUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_onlineSchool_ios_onlineSchool_iosUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		99452DE163F09399BBA48EC6 /* Pods-onlineSchool-ios-onlineSchool-iosUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-onlineSchool-ios-onlineSchool-iosUITests.release.xcconfig"; path = "Target Support Files/Pods-onlineSchool-ios-onlineSchool-iosUITests/Pods-onlineSchool-ios-onlineSchool-iosUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 		6A6F64B825BE93A40098DD04 /* home */ = {
 			isa = PBXGroup;
 			children = (
+				6ABF531225D0D60900E1EFDA /* view */,
 				6A02CF1025CA2AD0000AA6E6 /* zhiLing&zhiXue */,
 				6A6F64BF25BE94B20098DD04 /* MTTHomeViewController.swift */,
 			);
@@ -269,6 +272,14 @@
 				6A9BD22725B685CF00205DFD /* BaseViewController.swift */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		6ABF531225D0D60900E1EFDA /* view */ = {
+			isa = PBXGroup;
+			children = (
+				6ABF531325D0D62A00E1EFDA /* MTTSectionTitleView.swift */,
+			);
+			path = view;
 			sourceTree = "<group>";
 		};
 		FC454269A9633B83A28384F2 /* Pods */ = {
@@ -532,6 +543,7 @@
 				6A9BD1DE25B67E1000205DFD /* ViewController.swift in Sources */,
 				6A02CF5525CBCFF0000AA6E6 /* ModuleActionManager.swift in Sources */,
 				6A9BD1DA25B67E1000205DFD /* AppDelegate.swift in Sources */,
+				6ABF531425D0D62A00E1EFDA /* MTTSectionTitleView.swift in Sources */,
 				6A6F64FE25C0FBC10098DD04 /* InteractiveWebviewController.swift in Sources */,
 				6A9BD1DC25B67E1000205DFD /* SceneDelegate.swift in Sources */,
 				6A02CF2F25CB90E5000AA6E6 /* NavigationMap.swift in Sources */,
