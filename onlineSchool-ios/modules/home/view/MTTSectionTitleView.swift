@@ -45,9 +45,9 @@ class MTTSectionTitleView: UIView {
         
         
         sectionTitleLabel = UILabel()
-        sectionTitleLabel.frame = CGRect(x: 30, y: 0, width: self.bounds.size.width - 30, height: 20)
+        sectionTitleLabel.frame = CGRect(x: 32, y: 0, width: self.bounds.size.width - 30, height: 20)
         sectionTitleLabel.textAlignment = .left
-        sectionTitleLabel.font = .systemFont(ofSize: 13, weight: .regular)
+        sectionTitleLabel.font = .systemFont(ofSize: 15, weight: .regular)
         sectionContainer.addSubview(sectionTitleLabel)
     }
     

@@ -127,14 +127,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		6A02CF1025CA2AD0000AA6E6 /* zhiLing&zhiXue */ = {
-			isa = PBXGroup;
-			children = (
-				6A02CF1125CA2B78000AA6E6 /* MTTHomeCollectionViewCell.swift */,
-			);
-			path = "zhiLing&zhiXue";
-			sourceTree = "<group>";
-		};
 		6A02CF2D25CB8EE9000AA6E6 /* navigator */ = {
 			isa = PBXGroup;
 			children = (
@@ -155,7 +147,6 @@
 			isa = PBXGroup;
 			children = (
 				6ABF531225D0D60900E1EFDA /* view */,
-				6A02CF1025CA2AD0000AA6E6 /* zhiLing&zhiXue */,
 				6A6F64BF25BE94B20098DD04 /* MTTHomeViewController.swift */,
 			);
 			path = home;
@@ -278,6 +269,7 @@
 			isa = PBXGroup;
 			children = (
 				6ABF531325D0D62A00E1EFDA /* MTTSectionTitleView.swift */,
+				6A02CF1125CA2B78000AA6E6 /* MTTHomeCollectionViewCell.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
