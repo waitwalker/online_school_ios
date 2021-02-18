@@ -19,9 +19,10 @@ class MTTSectionTitleView: UIView {
     
     
     
-    convenience init(_ frame: CGRect, sectionTitle: String) {
+    convenience init(_ frame: CGRect, title: String) {
         self.init(frame: frame)
-        self.sectionTitle = sectionTitle
+        self.sectionTitle = title
+        sectionTitleLabel.text = title
     }
     
     override init(frame: CGRect) {
@@ -44,7 +45,6 @@ class MTTSectionTitleView: UIView {
         
         
         sectionTitleLabel = UILabel()
-        sectionTitleLabel.text = sectionTitle
         sectionTitleLabel.frame = CGRect(x: 30, y: 0, width: self.bounds.size.width - 30, height: 20)
         sectionTitleLabel.textAlignment = .left
         sectionTitleLabel.font = .systemFont(ofSize: 13, weight: .regular)

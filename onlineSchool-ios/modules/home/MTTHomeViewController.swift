@@ -26,7 +26,7 @@ class MTTHomeViewController: BaseViewController {
         let navigationBarHeight = (self.navigationController?.navigationBar.frame.size.height)!
         let statusBarHeight: CGFloat = (UIApplication.shared.windows.first?.windowScene?.statusBarManager!.statusBarFrame.size.height)!
         
-        let sectionContainer: MTTSectionTitleView = MTTSectionTitleView(CGRect(x: 0, y: navigationBarHeight + statusBarHeight + 20, width: self.view.w, height: 20), sectionTitle: "智领课11111")
+        let sectionContainer: MTTSectionTitleView = MTTSectionTitleView(CGRect(x: 0, y: navigationBarHeight + statusBarHeight + 20, width: self.view.w, height: 20), title: "智领课")
         self.view.addSubview(sectionContainer)
         
         
