@@ -32,6 +32,7 @@
 		6AB62FF925C3E0EC009A9711 /* MTTLoadingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB62FF825C3E0EC009A9711 /* MTTLoadingManager.swift */; };
 		6ABF531425D0D62A00E1EFDA /* MTTSectionTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ABF531325D0D62A00E1EFDA /* MTTSectionTitleView.swift */; };
 		6AEF164225DE01200088E7F6 /* MTTHomeCardContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AEF164125DE01200088E7F6 /* MTTHomeCardContainerView.swift */; };
+		6AEF164825DE054F0088E7F6 /* MTTSubjectDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AEF164725DE054F0088E7F6 /* MTTSubjectDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,7 @@
 		6AB62FF825C3E0EC009A9711 /* MTTLoadingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTTLoadingManager.swift; sourceTree = "<group>"; };
 		6ABF531325D0D62A00E1EFDA /* MTTSectionTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTTSectionTitleView.swift; sourceTree = "<group>"; };
 		6AEF164125DE01200088E7F6 /* MTTHomeCardContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTTHomeCardContainerView.swift; sourceTree = "<group>"; };
+		6AEF164725DE054F0088E7F6 /* MTTSubjectDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTTSubjectDetailViewController.swift; sourceTree = "<group>"; };
 		6D830D23BE4EDCCA9B4DABD9 /* Pods_onlineSchool_iosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_onlineSchool_iosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		70FB99CA75CCC0D0A266EEF9 /* Pods_onlineSchool_ios_onlineSchool_iosUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_onlineSchool_ios_onlineSchool_iosUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		99452DE163F09399BBA48EC6 /* Pods-onlineSchool-ios-onlineSchool-iosUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-onlineSchool-ios-onlineSchool-iosUITests.release.xcconfig"; path = "Target Support Files/Pods-onlineSchool-ios-onlineSchool-iosUITests/Pods-onlineSchool-ios-onlineSchool-iosUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 		6A6F64B825BE93A40098DD04 /* home */ = {
 			isa = PBXGroup;
 			children = (
+				6AEF164625DE052C0088E7F6 /* subjectDetail */,
 				6ABF531225D0D60900E1EFDA /* view */,
 				6A6F64BF25BE94B20098DD04 /* MTTHomeViewController.swift */,
 			);
@@ -275,6 +278,14 @@
 				6AEF164125DE01200088E7F6 /* MTTHomeCardContainerView.swift */,
 			);
 			path = view;
+			sourceTree = "<group>";
+		};
+		6AEF164625DE052C0088E7F6 /* subjectDetail */ = {
+			isa = PBXGroup;
+			children = (
+				6AEF164725DE054F0088E7F6 /* MTTSubjectDetailViewController.swift */,
+			);
+			path = subjectDetail;
 			sourceTree = "<group>";
 		};
 		FC454269A9633B83A28384F2 /* Pods */ = {
@@ -542,6 +553,7 @@
 				6A6F64FE25C0FBC10098DD04 /* InteractiveWebviewController.swift in Sources */,
 				6A9BD1DC25B67E1000205DFD /* SceneDelegate.swift in Sources */,
 				6A02CF2F25CB90E5000AA6E6 /* NavigationMap.swift in Sources */,
+				6AEF164825DE054F0088E7F6 /* MTTSubjectDetailViewController.swift in Sources */,
 				6AB62FF925C3E0EC009A9711 /* MTTLoadingManager.swift in Sources */,
 				6A6F64C025BE94B20098DD04 /* MTTHomeViewController.swift in Sources */,
 				6AEF164225DE01200088E7F6 /* MTTHomeCardContainerView.swift in Sources */,
