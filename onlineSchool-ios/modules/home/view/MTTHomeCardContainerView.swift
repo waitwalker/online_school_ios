@@ -7,14 +7,17 @@
 
 import UIKit
 import NetworkLibrary
+import URLNavigator
 
 /// 首页卡片容器 智领&智学课用到
 
 class MTTHomeCardContainerView: UIView {
     
     var collectionView: UICollectionView!
-    
     let reusedId: String = "reusedId"
+    
+    var navigator: Navigator?
+    
 
     var dataSource: [HomeCourseDataModel]? {
         didSet {
@@ -22,10 +25,14 @@ class MTTHomeCardContainerView: UIView {
         }
     }
     
+    /// 遍历构造器
+    convenience init(frame: CGRect, navigator: Navigator) {
+        self.init(frame: frame)
+        self.navigator = navigator
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         let collectionViewFlowLayout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         collectionViewFlowLayout.scrollDirection = .vertical
         collectionViewFlowLayout.minimumInteritemSpacing = 15
@@ -37,6 +44,7 @@ class MTTHomeCardContainerView: UIView {
         collectionView.dataSource = self
         collectionView.register(MTTHomeCollectionViewCell.self, forCellWithReuseIdentifier: reusedId)
         self.addSubview(collectionView)
+        
     }
     
     required init?(coder: NSCoder) {

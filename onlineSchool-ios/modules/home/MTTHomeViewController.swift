@@ -44,7 +44,7 @@ class MTTHomeViewController: BaseViewController {
         
         let collectionViewHeight: CGFloat = itemHeight * 2 + navigationBarHeight + statusBarHeight + 20 + 15 + 10;
         
-        zhiLingContainerView = MTTHomeCardContainerView(frame: CGRect(x: 0, y: sectionContainer.frame.maxY, width: self.view.bounds.size.width, height: collectionViewHeight))
+        zhiLingContainerView = MTTHomeCardContainerView(frame: CGRect(x: 0, y: sectionContainer.frame.maxY, width: self.view.bounds.size.width, height: collectionViewHeight), navigator: self.navigator!)
         zhiLingContainerView.backgroundColor = UIColor(hex: "#3399ff")
         self.view.addSubview(zhiLingContainerView)
         
