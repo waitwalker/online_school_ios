@@ -25,7 +25,7 @@ class MTTHomeCardContainerView: UIView {
         }
     }
     
-    /// 遍历构造器
+    /// 便利构造器
     convenience init(frame: CGRect, navigator: Navigator) {
         self.init(frame: frame)
         self.navigator = navigator
@@ -69,12 +69,10 @@ extension MTTHomeCardContainerView: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reusedId, for: indexPath) as! MTTHomeCollectionViewCell
         
         if let data = self.dataSource {
-            cell.model = data[indexPath.item]
+            cell.setDataSource(data[indexPath.item], navigator: self.navigator!)
         }
         return cell
     }
-    
-    
 }
 
 extension MTTHomeCardContainerView: UICollectionViewDelegate {

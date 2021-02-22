@@ -13,8 +13,8 @@ class MTTHomeCollectionViewCell: UICollectionViewCell {
     
     var subjectTitleLabel: UILabel!
     var subjectIconImageView: UIImageView!
-    
     var gradeScrollView: UIScrollView!
+    var navigator: Navigator?
     
     var model: HomeCourseDataModel? {
         didSet {
@@ -35,19 +35,33 @@ class MTTHomeCollectionViewCell: UICollectionViewCell {
         self.contentView.layer.cornerRadius = 5
         self.contentView.clipsToBounds = true
         setupSubviews()
+        setupTap()
     }
     
-    func setupTap() -> Void {
+    private func setupTap() -> Void {
         let tap = UITapGestureRecognizer(target: self, action: #selector(tapAction))
         self.contentView.addGestureRecognizer(tap)
     }
     
     @objc func tapAction() -> Void {
+        let isPushed = self.navigator?.push("navigator://subjectDetail") != nil
+        if isPushed {
+            
+        } else {
+            self.navigator?.open("navigator://subjectDetail")
+        }
         
     }
     
-    public func setDataSource(_ data: HomeCourseDataModel) -> Void {
-        
+    public func setDataSource(_ data: HomeCourseDataModel, navigator: Navigator) -> Void {
+        subjectTitleLabel.text = data.subjectName
+        let (image, color) = itemParameter(data)
+        self.contentView.backgroundColor = color
+        subjectIconImageView.image = UIImage(named: image)
+        addGradeViews(data)
+        if self.navigator == nil {
+            self.navigator = navigator
+        }
     }
     
     /// 初始化子控件
