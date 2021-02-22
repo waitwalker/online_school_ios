@@ -9,15 +9,25 @@
 
 import UIKit
 import NetworkLibrary
+import URLNavigator
 
 class MTTHomeViewController: BaseViewController {
     
     var zhiLingContainerView: MTTHomeCardContainerView!
     var zhiLingDataSource: [HomeCourseDataModel] = []
     var zhiXueDataSource: [HomeCourseDataModel] = []
+    var navigator: Navigator?
     
     
-
+    init(navigator: Navigator) {
+        self.navigator = navigator
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let navigationBarHeight = (self.navigationController?.navigationBar.frame.size.height)!

@@ -26,5 +26,10 @@ enum NavigationMap {
             navVC.modalPresentationStyle = .fullScreen
             return navVC
         }
+        
+        navigator.register("navigator://subjectDetail") { ulr, values, context in
+            let subjectDetail = MTTSubjectDetailViewController()
+            return subjectDetail
+        }
     }
 }

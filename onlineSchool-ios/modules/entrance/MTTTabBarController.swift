@@ -8,8 +8,22 @@
 /// controller 容器
 
 import UIKit
+import URLNavigator
 
 class MTTTabBarController: UITabBarController {
+    
+    var navigator: Navigator
+    
+    
+    init(navigator: Navigator) {
+        self.navigator = navigator
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,7 +32,7 @@ class MTTTabBarController: UITabBarController {
     
     /// 设置子控制器
     private func setupSubviewController() -> Void {
-        let homeVC            = MTTHomeViewController()
+        let homeVC            = MTTHomeViewController(navigator: self.navigator)
         addChildViewControllers(homeVC, normalIcon: UIImage(named: "tabbar_item_my_course_normal")!, selectedIcon: UIImage(named: "tabbar_item_my_course_selected")!, tabBarTitle: "我的课程")
         let personalVC        = MTTPersonalViewController()
         addChildViewControllers(personalVC, normalIcon: UIImage(named: "tabbar_item_personal_center_normal")!, selectedIcon: UIImage(named: "tabbar_item_personal_center_selected")!, tabBarTitle: "个人中心")

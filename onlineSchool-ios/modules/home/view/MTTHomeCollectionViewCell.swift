@@ -7,6 +7,7 @@
 
 import UIKit
 import NetworkLibrary
+import URLNavigator
 
 class MTTHomeCollectionViewCell: UICollectionViewCell {
     
@@ -34,6 +35,15 @@ class MTTHomeCollectionViewCell: UICollectionViewCell {
         self.contentView.layer.cornerRadius = 5
         self.contentView.clipsToBounds = true
         setupSubviews()
+    }
+    
+    func setupTap() -> Void {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tapAction))
+        self.contentView.addGestureRecognizer(tap)
+    }
+    
+    @objc func tapAction() -> Void {
+        
     }
     
     public func setDataSource(_ data: HomeCourseDataModel) -> Void {

@@ -53,7 +53,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                             /// 登录成功
                             /// 获取窗口&切换rootViewController
                             if let window = UIApplication.shared.windows.first {
-                                window.rootViewController = MTTTabBarController()
+                                window.rootViewController = MTTTabBarController(navigator: self.navigator!)
                                 window.makeKeyAndVisible()
                                 print("window:\(window)")
                             } else {
