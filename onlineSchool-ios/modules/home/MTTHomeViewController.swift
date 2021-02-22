@@ -30,6 +30,7 @@ class MTTHomeViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "我的课程"
         let navigationBarHeight = (self.navigationController?.navigationBar.frame.size.height)!
         let statusBarHeight: CGFloat = (UIApplication.shared.windows.first?.windowScene?.statusBarManager!.statusBarFrame.size.height)!
         
