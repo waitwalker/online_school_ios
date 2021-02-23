@@ -44,6 +44,9 @@ class MTTHomeCollectionViewCell: UICollectionViewCell {
     }
     
     @objc func tapAction() -> Void {
+        
+        
+        
         let isPushed = self.navigator?.push("navigator://subjectDetail") != nil
         if isPushed {
             
@@ -53,7 +56,7 @@ class MTTHomeCollectionViewCell: UICollectionViewCell {
         
     }
     
-    public func setDataSource(_ data: HomeCourseDataModel, navigator: Navigator) -> Void {
+    public func setDataSource(_ data: HomeCourseDataModel, navigator: Navigator, index: Int, dataSources: [HomeCourseDataModel]) -> Void {
         subjectTitleLabel.text = data.subjectName
         let (image, color) = itemParameter(data)
         self.contentView.backgroundColor = color

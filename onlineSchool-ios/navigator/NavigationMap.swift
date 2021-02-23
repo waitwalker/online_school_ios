@@ -27,7 +27,7 @@ enum NavigationMap {
             return navVC
         }
         
-        navigator.register("navigator://subjectDetail") { ulr, values, context in
+        navigator.register("navigator://subjectDetail/<model>") { ulr, values, context in
             let subjectDetail = MTTSubjectDetailViewController()
             subjectDetail.hidesBottomBarWhenPushed = true
             return subjectDetail
