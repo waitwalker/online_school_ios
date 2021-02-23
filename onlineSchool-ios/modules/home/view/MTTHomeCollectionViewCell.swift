@@ -11,10 +11,12 @@ import URLNavigator
 
 class MTTHomeCollectionViewCell: UICollectionViewCell {
     
-    var subjectTitleLabel: UILabel!
-    var subjectIconImageView: UIImageView!
-    var gradeScrollView: UIScrollView!
-    var navigator: Navigator?
+    private var subjectTitleLabel: UILabel!
+    private var subjectIconImageView: UIImageView!
+    private var gradeScrollView: UIScrollView!
+    private var navigator: Navigator?
+    private var currentIndex: Int = 1000000000000
+    
     
     var model: HomeCourseDataModel? {
         didSet {
@@ -44,9 +46,6 @@ class MTTHomeCollectionViewCell: UICollectionViewCell {
     }
     
     @objc func tapAction() -> Void {
-        
-        
-        
         let isPushed = self.navigator?.push("navigator://subjectDetail") != nil
         if isPushed {
             
