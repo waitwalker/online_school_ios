@@ -5,8 +5,8 @@ PODS:
   - LoginModule (0.5):
     - ExtensionLibrary
     - SnapKit
-  - lottie-ios (3.2.0)
-  - NetworkLibrary (1.7.6):
+  - lottie-ios (3.2.1)
+  - NetworkLibrary (1.7.7):
     - Alamofire (~> 5.4.1)
     - HandyJSON (~> 5.0.2)
   - NVActivityIndicatorView (5.1.1):
@@ -48,8 +48,8 @@ SPEC CHECKSUMS:
   ExtensionLibrary: 3db3d4cad68749fa92463a8040fb013a719a8d79
   HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
   LoginModule: 19cc2b5f08759f47c4663a684c75fbf0eecbb1d0
-  lottie-ios: b6b911246246a90a1d25e7388afe6d9ef003d293
-  NetworkLibrary: 85074bf42f93851a8d066b83a78547b4279b72c3
+  lottie-ios: 106e92eaf11fbed0a76590b4cdb9b5ec26123ff7
+  NetworkLibrary: 4952e1ed2cb59502e1d6e445e07b838a559f0d02
   NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   Toaster: c3473963c78e8cabbf6ea6f11ad0fdaae6f54987

@@ -69,6 +69,8 @@ extension MTTHomeCardContainerView: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reusedId, for: indexPath) as! MTTHomeCollectionViewCell
         
         if let data = self.dataSource {
+            let currentModel = data[indexPath.item]
+            currentModel.currentIndex = indexPath.item
             cell.setDataSource(data[indexPath.item], navigator: self.navigator!, index: indexPath.row, dataSources: data)
         }
         return cell

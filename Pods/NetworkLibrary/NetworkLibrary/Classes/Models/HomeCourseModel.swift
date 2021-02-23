@@ -17,6 +17,8 @@ public class HomeCourseModel: BaseModel {
 }
 
 public class HomeCourseDataModel: HandyJSON {
+    public var currentIndex: Int = 10000
+    public var isZhiLing: Bool = false
     public var subjectId: Int = 0
     public var subjectName: String = ""
     public var grades: [HomeCourseGradesModel] = []
